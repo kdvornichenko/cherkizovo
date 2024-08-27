@@ -1,0 +1,17 @@
+[data-acc-content]
+    height: 0
+    overflow: hidden
+    transition: $trs
+    &.is-open
+      height: var(--acc-max-height)
+      
+[data-acc-btn]
+    svg
+        transition: $trs
+        order: 1
+        width: 20px
+        height: 20px
+    &.is-active
+        svg
+            transform: rotate(180deg)
+            

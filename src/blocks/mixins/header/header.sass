@@ -1,0 +1,23 @@
+.header
+    display: flex
+    aic: center
+    justify-content: space-between
+
+.header__logo
+    svg
+        +yo('width', ($mob: 195px, $desktop-md: 257px))
+        +yo('height', ($mob: 45px, $desktop-md: 60px))
+
+        color: $brand
+
+.header__support
+    display: flex
+    column-gap: 22px
+
+    padding: 12px 14px
+
+    border-radius: 16px
+    background-color: rgba($white, 0.5)
+
+.header__support-text
+    font-size: 14px

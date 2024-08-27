@@ -1,0 +1,46 @@
+/**
+ * Headings.
+ *
+ * Redefine our heading styles against utility classes. This gives us a double
+ * stranded heading hierarchy whereby we can style one heading as another, e.g.:
+ *
+ <h4 class="t-h1">I am an H4 that is the same size as an H1</h4>
+ *
+ */
+
+.t-h1
+    +heading-size-1
+
+.t-h2
+    +heading-size-2
+
+.t-h3
+    +heading-size-3
+
+.t-h4
+    +heading-size-4
+
+.t-h5
+    +heading-size-5
+
+/**
+ * Text Uppercase styled
+ */
+.t-ttu
+    line-height: 1
+    font-size: 12px
+    letter-spacing: 0.04em
+    text-transform: uppercase
+
+/**
+ * Text alignments.
+ */
+
+.t-tar
+    text-align: right
+
+.t-tal
+    text-align: left
+
+.t-tac
+    text-align: center

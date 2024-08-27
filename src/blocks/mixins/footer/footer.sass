@@ -1,0 +1,22 @@
+.footer
+    position: fixed
+    left: $unit
+    +yo('bottom', ($mob: 23px, $desktop-md: 30px))
+
+    display: flex
+    align-items: center
+    justify-content: space-between
+    column-gap: 26px
+
+    padding: 20px 24px
+
+    max-width: 870px
+
+    background-color: rgba($white, 0.75)
+    border-radius: 20px
+
+.footer__text
+    +gotham(m)
+    +yo('font-size', ($mob: 14px, $desktop-md: 16px))
+    span
+        color: $brand

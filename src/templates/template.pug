@@ -1,0 +1,16 @@
+doctype html
+html(lang='ru')
+    include ../templates/mixins.pug
+    include ../templates/head.pug
+    
+    body
+    
+        //- Header
+        include ../blocks/mixins/header/header.pug
+
+        //- Main content
+        main
+            block content
+
+        //- Footer
+        //- include ../blocks/mixins/footer/footer.pug

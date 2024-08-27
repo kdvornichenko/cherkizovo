@@ -1,0 +1,56 @@
+.btn
+    display: flex
+    align-items: center
+    justify-content: center
+    column-gap: 8px
+
+    height: fit-content
+    .btn__icon
+        display: flex
+        align-items: center
+        justify-content: center
+    .btn__text
+        white-space: nowrap
+
+.btn--icon
+    @extend .u-center
+    border-radius: 100%
+
+.btn--solid
+    width: fit-content
+    border-radius: 15px
+    background-color: $brand
+
+    padding: 18px 26px
+
+    transition: $trs
+    &:hover, &:active
+        background-color: $brand-hover
+        border-color: $brand-hover
+
+    .btn__text
+        color: $white
+        text-transform: uppercase
+        +gotham(b)
+
+        font-size: 14px
+
+.btn--outline
+    width: fit-content
+    padding: 12px 16px
+
+    border: 1px solid $brand
+    border-radius: 15px
+
+    transition: $trs
+
+    &:hover, &:active
+        border-color: $brand
+        .btn__text
+            color: $brand-hover
+
+    .btn__text
+        color: $brand
+        +gotham(b)
+
+        transition: $trs
