@@ -1,6 +1,7 @@
 .footer
     position: fixed
     left: $unit
+    right: $unit
     +yo('bottom', ($mob: 23px, $desktop-md: 30px))
 
     display: flex
@@ -14,6 +15,11 @@
 
     background-color: rgba($white, 0.75)
     border-radius: 20px
+    @media ( max-width: $tab-sm )
+        flex-direction: column
+        row-gap: 18px
+        .footer__btn
+            width: 100%
 
 .footer__text
     +gotham(m)
