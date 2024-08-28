@@ -1,9 +1,7 @@
 // Размер наборного текста
 =base-text
-    font-size: 16px
-
-    @media (min-width: 1940px)
-        font-size: 18px
+    +yo('font-size', ($mob: 14px, $desktop-md: 16px, $desktop-lg: 18px))
+    letter-spacing: -1%
 
 // vh
 =vh($perc: 100)

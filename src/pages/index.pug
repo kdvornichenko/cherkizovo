@@ -1,5 +1,18 @@
 extends ../templates/template.pug
 
 block content
-    +header
-    +footer
+    .main-page
+        picture
+            source(type="image/jpeg" srcset="assets/img/svg/main-ovals.svg" media="(min-width: 769px)")
+            source(type="image/jpeg" srcset="assets/img/svg/main-ovals-mob.svg" media="(max-width: 768px)")
+            img(class="lazy main-page__sky ls-is-cached lazyloaded" src="assets/img/svg/main-ovals.svg" alt="")
+        +header
+        .main-page__content.container--x
+            .main-page__title-wrapper
+                h1.main-page__title Невыдуманная<br>история
+                img(src='assets/img/svg/main-title-oval-1.svg').main-page__title-oval.main-page__title-oval--1
+                img(src='assets/img/svg/main-title-oval-2.svg').main-page__title-oval.main-page__title-oval--2
+                .main-page__title-descr
+                    +svg('fire')
+                    span В&nbsp;этом году &laquo;Черкизово&raquo; празднует первый юбилей!
+        +footer
