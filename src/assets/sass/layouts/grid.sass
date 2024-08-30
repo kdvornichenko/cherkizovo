@@ -4,14 +4,14 @@
 
 .container
     @extend .container--x
-    @extend .container--top
+    @extend .container--y
 
 .container--x
     padding-left: $unit
     padding-right: $unit
 
-.container--top
-    +offset-y(top)
+.container--y
+    +offset-y(block)
 
 \:root
     --unit: 118px

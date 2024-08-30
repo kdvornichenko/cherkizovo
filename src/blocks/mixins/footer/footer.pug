@@ -1,4 +1,11 @@
-mixin footer
-    footer.footer
-        .footer__text В&nbsp;весёлом квизе рассказываем, как изменилась жизнь когда-то небольшого мясоперерабатывающего завода за&nbsp;50&nbsp;лет,&nbsp;&mdash; а&nbsp;изменилась она невероятно! <span>Сможете отличить реальность от&nbsp;выдумки на&nbsp;вкус?</span>
-        +btn({text: 'Принять вызов!'}).footer__btn.btn--solid
+mixin footer(isMain = true)
+    footer.footer&attributes(attributes)
+        if isMain
+            .footer__text В&nbsp;весёлом квизе рассказываем, как изменилась жизнь когда-то небольшого мясоперерабатывающего завода за&nbsp;50&nbsp;лет,&nbsp;&mdash; а&nbsp;изменилась она невероятно! <span>Сможете отличить реальность от&nbsp;выдумки на&nbsp;вкус?</span>
+        else
+            .footer__text
+                .footer__text-title Разделяете наш аппетит к&nbsp;работе?
+                .footer__text-desc Поддержите &laquo;Черкизово&raquo; в&nbsp;Рейтинге работодателей!
+        +btn({text: isMain ? 'Принять вызов!' : 'Поддержать', icon: !isMain && 'arrow-right', isLink: true, href: '/questions'}).footer__btn.btn--solid
+        if !isMain
+            +picture({src: 'footer-mob-quest.png', isOutside: true}).footer__mob-img

@@ -1,0 +1,185 @@
+.questions
+    background-color: $brand
+    height: 100vh
+
+.questions__header
+    justify-content: flex-end
+    svg
+        color: $white
+
+.questions__footer
+    right: $unit
+    left: unset
+    padding: 25px
+    .footer__btn
+        .btn__icon
+            display: none
+    @media ( max-width: $tab-sm )
+        width: 100%
+        max-width: calc(100% - #{$unit} * 2)
+
+        padding: 20px
+
+        display: flex
+        flex-direction: row
+
+        background-color: rgba($black, 0.2)
+        .footer__btn
+            padding: 0
+            width: fit-content
+            position: relative
+            z-index: 1
+            .btn__icon
+                display: flex
+                width: 44px
+                height: 44px
+                background-color: $light
+                border-radius: 14px
+                svg
+                    color: $brand
+                    width: 20px
+                    height: 20px
+            .btn__text
+                display: none
+
+.question
+    display: grid
+    grid-template-columns: repeat(2,1fr)
+
+.question__content
+    padding-right: $unit
+    &.is-answered
+        .question__btns
+            display: none
+        .question__answer-container
+            display: block
+        .question__next-btn
+            display: block
+
+.question__counter
+    display: flex
+    align-items: center
+    column-gap: 3px
+
+    width: fit-content
+    padding: 6px 8px
+
+    background-color: $brand-hover
+    border-radius: 10px
+
+    +gotham(m)
+    font-size: 16px
+    letter-spacing: -1%
+    line-height: 140%
+
+    color: rgba($light, 0.6)
+
+.question__counter-current
+    color: $white
+
+.question__text
+    margin-top: 22px
+
+    +gotham(m)
+    +yo('font-size', ($mob: 20px, $desktop-md: 24px))
+    letter-spacing: -1%
+    line-height: 130%
+
+    color: $light
+
+.question__btns
+    +yo('margin-top', ($mob: 20px, $desktop-md: 34px))
+
+    display: flex
+    flex-direction: column
+    +yo('row-gap',($mob: 10px, $desktop-md: 12px))
+
+    width: 100%
+
+.question__btn
+    width: 100%
+    padding: 13px
+
+    border-radius: 100px
+    background-color: $light-2
+
+    +gotham(m)
+    +yo('font-size', ($mob: 14px, $desktop-md: 18px))
+    color: $black
+
+    transition: $trs
+    &:hover, &:focus
+        background-color: $light
+        color: $brand
+
+.question__answer-container
+    display: none
+
+    margin-top: 34px
+
+.question__answer-inner
+    +yo('padding-inline', ($mob: 20px, $desktop-md: 26px))
+    padding-block: 20px
+
+    background-color: $light-2
+    border-radius: 20px
+
+    display: flex
+    flex-direction: column
+    +yo('row-gap', ($mob: 10px, $desktop-md: 14px))
+
+.question__answer-state
+    display: flex
+    align-items: center
+    column-gap: 14px
+
+    &[data-answer-value="false"]
+        color: $brand
+        .question__answer-icon--true
+            display: none
+
+    &[data-answer-value="true"]
+        color: $green
+        .question__answer-icon--false
+            display: none
+    span
+        color: currentColor
+        font-size: 18px
+        +gotham(m)
+
+.question__answer-icon
+    width: 28px
+    height: 28px
+
+    display: flex
+    align-items: center
+    justify-content: center
+
+    background-color: currentColor
+
+    border-radius: 100%
+    svg
+        width: 18px
+        height: 18px
+
+        color: $white
+
+.question__next-btn
+    display: none
+
+    padding: 17px
+    +yo('margin-top', ($mob: 14px, $desktop-md: 20px))
+    width: 100%
+
+    border: 1px solid $white
+    border-radius: 15px
+
+    color: $white
+    text-transform: uppercase
+    +gotham(b)
+    font-size: 14px
+
+    transition: $trs
+    &:hover, &:active
+        background-color: $white
+        color: $black

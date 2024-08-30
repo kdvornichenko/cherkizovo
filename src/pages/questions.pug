@@ -1,0 +1,32 @@
+extends ../templates/template.pug
+
+block content
+    .questions
+        +header(false).questions__header
+
+        .question
+            .question__img
+            .question__content(data-question="container")
+                .question__counter
+                    span.question__counter-current(data-question="counter-current" data-counter-value="")
+                    | /
+                    span.question__counter-total(data-question="counter-total")
+
+                .question__text(data-question="text")
+                .question__btns
+                    button(type="button" data-question="btn" data-btn-value="").question__btn
+                    button(type="button" data-question="btn" data-btn-value="").question__btn
+
+                .question__answer-container(data-question-answer="container")
+                    .question__answer-inner
+                        .question__answer-state(data-question-answer="state" data-answer-value="")
+                            .question__answer-icon.question__answer-icon--true
+                                +svg('like')
+                            .question__answer-icon.question__answer-icon--false
+                                +svg('dislike')
+                            span(data-question-answer="state-text")
+                        .question__answer-text(data-question-answer="text")
+                button(type="button" data-question="next" disabled="disabled").question__next-btn Далее
+        
+        +footer(false).questions__footer
+                    

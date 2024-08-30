@@ -1,7 +1,8 @@
-mixin header
-    header.header.container
+mixin header(isMain = true)
+    header.header.container&attributes(attributes)
         a(href='/').header__logo
             +svg('logo-full')
-        .header__support
-            span.header__support-text Поддержите &laquo;Черкизово&raquo;<br>в&nbsp;Рейтинге работодателей!
-            +btn({text: 'Поддержать', isLink: true}).header__support-btn.btn--outline
+        if isMain
+            .header__support
+                span.header__support-text Поддержите &laquo;Черкизово&raquo;<br>в&nbsp;Рейтинге работодателей!
+                +btn({text: 'Поддержать', isLink: true}).header__support-btn.btn--outline

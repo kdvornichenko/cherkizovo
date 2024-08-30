@@ -4,17 +4,17 @@ mixin picture(options)
             img(
                 class=!options.noLazy ? "lazy lazyload" : ""
                 type="image/webp"
-                src=`assets/img/webp/${options.srcWebp}`
+                src=`${options.isOutside && '../'}assets/img/webp/${options.srcWebp}`
                 width=options.width
                 height=options.height
             )&attributes(attributes)
         else if options.srcWebp && options.src
-            source(type="image/webp" srcset=`assets/img/webp/${options.srcWebp}`)
+            source(type="image/webp" srcset=`${options.isOutside && '../'}assets/img/webp/${options.srcWebp}`)
         if options.src
-            source(type="image/jpeg" srcset=`assets/img/${options.src}`)
+            source(type="image/jpeg" srcset=`${options.isOutside && '../'}assets/img/${options.src}`)
             img(
                 class=!options.noLazy ? "lazy lazyload" : ""
-                src=`assets/img/${options.src}`
+                src=`${options.isOutside && '../'}assets/img/${options.src}`
                 width=options.width
                 height=options.width
                 alt=""

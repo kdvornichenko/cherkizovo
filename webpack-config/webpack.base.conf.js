@@ -42,18 +42,23 @@ const pugToHtml = PAGES.map(page => {
     const pageName = page.substring(0, page.length - 4);
     let chunks = ['runtime', 'vendors', 'common'];
 
+    let outputPath = pageName + '.html';
+
+    /* eslint-disable */
     switch (pageName) {
-    // case 'main':
-    //     chunks.push('main');
-    //     break;
-    default:
-        chunks.push('index');
+        case 'questions':
+            chunks.push('questions');
+            outputPath = 'questions/index.html';
+            break;
+        default:
+            chunks.push('index');
     }
+    /* eslint-enable */
 
     return (
         new HtmlWebpackPlugin({
             template: `${PAGES_DIR}/${page}`,
-            filename: pageName + '.html',
+            filename: outputPath, // Set the output path based on page name
             chunks,
             title: `${page.replace(/\.pug/, '')}`,
             minify: {
@@ -63,13 +68,14 @@ const pugToHtml = PAGES.map(page => {
     );
 });
 
+
 module.exports = {
     externals: {
         paths: PATHS,
     },
     entry: {
         ['index']: `${PATHS.src}/js/pages/index`,
-        // ['main']: `${PATHS.src}/js/pages/main`,
+        ['questions']: `${PATHS.src}/js/pages/questions`,
     },
     output: {
         filename: `${PATHS.assets}/js/[name].js`,
@@ -198,7 +204,7 @@ module.exports = {
             patterns: [
                 { from: `${PATHS.src}/${PATHS.assets}/img`, to: `${PATHS.assets}/img` },
                 { from: `${PATHS.src}/${PATHS.assets}/fonts`, to: `${PATHS.assets}/fonts` },
-                // { from: `${PATHS.src}/${PATHS.assets}/json`, to: `${PATHS.assets}/json` },
+                { from: `${PATHS.src}/${PATHS.assets}/json`, to: `${PATHS.assets}/json` },
                 { from: `${PATHS.src}/${PATHS.assets}/favicon`, to: `${PATHS.assets}/favicon` },
             ],
         }),
