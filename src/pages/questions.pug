@@ -4,9 +4,15 @@ block content
     .questions
         +header(false).questions__header
 
-        .question
-            .question__img
-            .question__content(data-question="container")
+        .question(data-question="container")
+            .question__img-holder(data-question="img")
+                picture
+                    source(type="image/webp" srcset="assets/img/webp/question-1.webp" media="(min-width: 1025px)" data-question-img="desktop-webp")
+                    source(type="image/webp" srcset="assets/img/webp/question-1-mob.webp" media="(max-width: 1024px)" data-question-img="mob-webp")
+                    source(type="image/jpeg" srcset="assets/img/question-1.png" media="(min-width: 1025px)" data-question-img="desktop")
+                    source(type="image/jpeg" srcset="assets/img/question-1-mob.png" media="(max-width: 1024px)" data-question-img="mob")
+                    img(class="lazy question__img ls-is-cached lazyloaded" src="assets/img/question-1.png" alt="" data-question-img="default"  data-img-value="1").question__img
+            .question__content
                 .question__counter
                     span.question__counter-current(data-question="counter-current" data-counter-value="")
                     | /
@@ -14,8 +20,8 @@ block content
 
                 .question__text(data-question="text")
                 .question__btns
-                    button(type="button" data-question="btn" data-btn-value="").question__btn
-                    button(type="button" data-question="btn" data-btn-value="").question__btn
+                    button(type="button" data-question="btn" data-btn-index="").question__btn
+                    button(type="button" data-question="btn" data-btn-index="").question__btn
 
                 .question__answer-container(data-question-answer="container")
                     .question__answer-inner
@@ -28,5 +34,5 @@ block content
                         .question__answer-text(data-question-answer="text")
                 button(type="button" data-question="next" disabled="disabled").question__next-btn Далее
         
-        +footer(false).questions__footer
+        +footer(false, '/').questions__footer
                     

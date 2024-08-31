@@ -13,7 +13,11 @@
                 "value": true,
                 "answer": "И&nbsp;правда. Но&nbsp;кое-что нас объединяет: на&nbsp;предприятиях &laquo;Черкизово&raquo; трудится 36&nbsp;тысяч человек, а&nbsp;ведь это почти всё население Монако!"
             }
-        ]
+        ],
+        "images": {
+            "desktop": { "src": "assets/img/question-1.png", "webp": "assets/img/webp/question-1.webp" },
+            "mobile": { "src": "assets/img/question-1-mob.png", "webp": "assets/img/webp/question-1-mob.webp" }
+        }
     },
     {
         "id": 2,
@@ -29,7 +33,11 @@
                 "value": true,
                 "answer": "Угадали! &laquo;Черкизово&raquo;&nbsp;&mdash; это 257,5&nbsp;тыс. гектаров посевных площадей, 13&nbsp;комбикормовых заводов, 20&nbsp;свиноводческих комплексов и&nbsp;14&nbsp;птицеводческих, 2&nbsp;предприятия по&nbsp;производству мяса индейки и&nbsp;даже свой центр НИОКР. Всё, что нужно, от&nbsp;комбикормов до&nbsp;научных испытаний, мы&nbsp;производим сами!"
             }
-        ]
+        ],
+        "images": {
+            "desktop": { "src": "assets/img/question-2.png", "webp": "assets/img/webp/question-2.webp" },
+            "mobile": { "src": "assets/img/question-2-mob.png", "webp": "assets/img/webp/question-2-mob.webp" }
+        }
     },
     {
         "id": 3,
@@ -45,7 +53,11 @@
                 "value": false,
                 "answer": "Не&nbsp;верите? Приезжайте на&nbsp;экскурсию в&nbsp;Каширу! И&nbsp;хотя всё производство&nbsp;&mdash; на&nbsp;&laquo;плечах&raquo; роботов, без ИТ-специалистов, инженеров, строителей и&nbsp;технологов этот завод так и&nbsp;остался&nbsp;бы задумкой фантастов. Давайте мечтать вместе!"
             }
-        ]
+        ],
+        "images": {
+            "desktop": { "src": "assets/img/question-3.png", "webp": "assets/img/webp/question-3.webp" },
+            "mobile": { "src": "assets/img/question-3-mob.png", "webp": "assets/img/webp/question-3-mob.webp" }
+        }
     },
     {
         "id": 4,
@@ -61,7 +73,11 @@
                 "value": false,
                 "answer": "Вкусы действительно меняются&nbsp;&mdash; это наши технологи знают. Их&nbsp;стараниями советская линейка из&nbsp;10&nbsp;наименований колбас разрослась до&nbsp;300! И&nbsp;всё&nbsp;же &laquo;Докторская по-черкизовски&raquo; сохранила рецептуру из&nbsp;ГОСТа 1936 года&nbsp;&mdash; мясо, специи и&nbsp;ничего лишнего."
             }
-        ]
+        ],
+        "images": {
+            "desktop": { "src": "assets/img/question-1.png", "webp": "assets/img/webp/question-1.webp" },
+            "mobile": { "src": "assets/img/question-1-mob.png", "webp": "assets/img/webp/question-1-mob.webp" }
+        }
     },
     {
         "id": 5,
@@ -77,6 +93,10 @@
                 "value": true,
                 "answer": "Полностью согласны! Но&nbsp;для &laquo;Черкизово&raquo; по-прежнему важно пробуждать аппетит к&nbsp;аграрной отрасли у&nbsp;молодёжи. В&nbsp;сельских школах открываем агроклассы, где знакомим учеников с&nbsp;основами ветеринарии и&nbsp;зоотехники. А&nbsp;студентов приглашаем к&nbsp;нам на&nbsp;стажировки и&nbsp;практики."
             }
-        ]
+        ],
+        "images": {
+            "desktop": { "src": "assets/img/question-2.png", "webp": "assets/img/webp/question-2.webp" },
+            "mobile": { "src": "assets/img/question-2-mob.png", "webp": "assets/img/webp/question-2-mob.webp" }
+        }
     }
 ]

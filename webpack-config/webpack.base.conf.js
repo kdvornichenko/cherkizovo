@@ -50,6 +50,10 @@ const pugToHtml = PAGES.map(page => {
             chunks.push('questions');
             outputPath = 'questions/index.html';
             break;
+        case 'results':
+            chunks.push('results');
+            outputPath = 'results/index.html';
+            break;
         default:
             chunks.push('index');
     }
@@ -76,6 +80,7 @@ module.exports = {
     entry: {
         ['index']: `${PATHS.src}/js/pages/index`,
         ['questions']: `${PATHS.src}/js/pages/questions`,
+        ['results']: `${PATHS.src}/js/pages/results`,
     },
     output: {
         filename: `${PATHS.assets}/js/[name].js`,

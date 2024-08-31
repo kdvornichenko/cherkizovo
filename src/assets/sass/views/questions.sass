@@ -1,20 +1,24 @@
 .questions
     background-color: $brand
-    height: 100vh
+    height: 100dvh
 
 .questions__header
     justify-content: flex-end
     svg
         color: $white
+    @media ( max-width: $tab )
+        justify-content: flex-start
 
 .questions__footer
     right: $unit
     left: unset
     padding: 25px
+
+    z-index: 1
     .footer__btn
         .btn__icon
             display: none
-    @media ( max-width: $tab-sm )
+    @media ( max-width: $tab )
         width: 100%
         max-width: calc(100% - #{$unit} * 2)
 
@@ -23,31 +27,44 @@
         display: flex
         flex-direction: row
 
-        background-color: rgba($black, 0.2)
+        background-color: $brand
+        &::before
+            content: ''
+            position: absolute
+            top: 0
+            left: 0
+            width: 100%
+            height: 100%
+            background-color: rgba($black, 0.2)
+            z-index: 0
         .footer__btn
             padding: 0
             width: fit-content
             position: relative
-            z-index: 1
+            z-index: 2
             .btn__icon
                 display: flex
                 width: 44px
                 height: 44px
                 background-color: $light
                 border-radius: 14px
+                &:hover, &:active
+                    svg
+                        color: $brand-hover
                 svg
-                    color: $brand
                     width: 20px
                     height: 20px
+
+                    color: $brand
+                    transition: $trs
             .btn__text
                 display: none
 
 .question
     display: grid
     grid-template-columns: repeat(2,1fr)
+    background-color: $brand
 
-.question__content
-    padding-right: $unit
     &.is-answered
         .question__btns
             display: none
@@ -55,6 +72,39 @@
             display: block
         .question__next-btn
             display: block
+    @media ( max-width: $tab )
+        grid-template-columns: 1fr
+
+.question__img-holder
+    img
+        &.is-hidden
+            opacity: 0
+            visibility: hidden
+            user-select: none
+            pointer-events: none
+
+.question__img
+    position: absolute
+    top: 0
+    height: 100%
+    z-index: 0
+    +yo('left', ($tab:-260px, $desktop-md: 0px))
+    @media ( max-width: $tab )
+        left: 50%
+        transform: translate(-50%, 0%)
+        top: unset
+        bottom: 40px
+    @media ( max-width: $mob )
+        width: 95%
+        height: auto
+
+.question__content
+    padding-right: $unit
+
+    position: relative
+    z-index: 2
+    @media ( max-width: $tab )
+        padding-left: $unit
 
 .question__counter
     display: flex
@@ -68,7 +118,7 @@
     border-radius: 10px
 
     +gotham(m)
-    font-size: 16px
+    +yo('font-size', ($desktop-md: 16px, $desktop-lg: 20px))
     letter-spacing: -1%
     line-height: 140%
 
@@ -78,21 +128,21 @@
     color: $white
 
 .question__text
-    margin-top: 22px
+    +yo('margin-top', ($mob: 14px, $desktop-md: 22px, $desktop-lg: 26px))
 
     +gotham(m)
-    +yo('font-size', ($mob: 20px, $desktop-md: 24px))
+    +yo('font-size', ($mob: 20px, $desktop-md: 24px, $desktop-lg: 34px))
     letter-spacing: -1%
     line-height: 130%
 
     color: $light
 
 .question__btns
-    +yo('margin-top', ($mob: 20px, $desktop-md: 34px))
+    +yo('margin-top', ($mob: 20px, $desktop-md: 34px, $desktop-lg: 38px))
 
     display: flex
     flex-direction: column
-    +yo('row-gap',($mob: 10px, $desktop-md: 12px))
+    +yo('row-gap',($mob: 10px, $desktop-md: 12px, $desktop-lg: 14px))
 
     width: 100%
 
@@ -104,7 +154,7 @@
     background-color: $light-2
 
     +gotham(m)
-    +yo('font-size', ($mob: 14px, $desktop-md: 18px))
+    +yo('font-size', ($mob: 14px, $desktop-md: 18px, $desktop-lg: 22px))
     color: $black
 
     transition: $trs
@@ -118,7 +168,7 @@
     margin-top: 34px
 
 .question__answer-inner
-    +yo('padding-inline', ($mob: 20px, $desktop-md: 26px))
+    +yo('padding-inline', ($mob: 20px, $desktop-md: 26px, $desktop-lg: 30px))
     padding-block: 20px
 
     background-color: $light-2
@@ -126,7 +176,7 @@
 
     display: flex
     flex-direction: column
-    +yo('row-gap', ($mob: 10px, $desktop-md: 14px))
+    +yo('row-gap', ($mob: 10px, $desktop-md: 14px, $desktop-lg: 18px))
 
 .question__answer-state
     display: flex
@@ -143,13 +193,16 @@
         .question__answer-icon--false
             display: none
     span
+        flex: 1
         color: currentColor
         font-size: 18px
+        +yo('font-size', ($desktop-md: 18px, $desktop-lg: 22px))
+
         +gotham(m)
 
 .question__answer-icon
-    width: 28px
-    height: 28px
+    +yo('width', ($desktop-md: 28px, $desktop-lg: 32px))
+    +yo('height', ($desktop-md: 28px, $desktop-lg: 32px))
 
     display: flex
     align-items: center
@@ -159,25 +212,29 @@
 
     border-radius: 100%
     svg
-        width: 18px
-        height: 18px
+        +yo('width', ($desktop-md: 18px, $desktop-lg: 22px))
+        +yo('height', ($desktop-md: 18px, $desktop-lg: 22px))
 
         color: $white
+
+.question__answer-text
+    +yo('font-size', ($desktop-md: 16px, $desktop-lg: 20px))
 
 .question__next-btn
     display: none
 
     padding: 17px
-    +yo('margin-top', ($mob: 14px, $desktop-md: 20px))
+    +yo('margin-top', ($mob: 14px, $desktop-md: 20px, $desktop-lg: 24px))
     width: 100%
 
     border: 1px solid $white
     border-radius: 15px
+    backdrop-filter: blur(30px)
 
     color: $white
     text-transform: uppercase
     +gotham(b)
-    font-size: 14px
+    +yo('font-size', ($desktop-md: 14px, $desktop-lg: 18px))
 
     transition: $trs
     &:hover, &:active

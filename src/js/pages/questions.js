@@ -4,9 +4,7 @@ let questionCount = 0;
 let isAnswered = false;
 let correctAnsweredCount = 0;
 
-function getQuestions() {
-    return axios.get('/assets/json/questions.json').then(res => res.data);
-}
+const getQuestions = () => axios.get('/assets/json/questions.json').then(res => res.data);
 
 Promise.resolve(getQuestions()).then(data => {
     const container = $.qs('[data-question="container"]');
@@ -14,12 +12,15 @@ Promise.resolve(getQuestions()).then(data => {
     if (!container) return;
 
     // Question
+    const imageContainer = $.qs('[data-question="img"]', container);
+    const imageHTML = $.qs('picture', imageContainer);
     const counterCurrent = $.qs('[data-question="counter-current"]', container);
     const counterTotal = $.qs('[data-question="counter-total"]', container);
     const getQuestionCount = () => counterCurrent.dataset.counterValue;
     const text = $.qs('[data-question="text"]', container);
     const btns = $.qsa('[data-question="btn"]', container);
     const nextBtn = $.qs('[data-question="next"]', container);
+    const mainImgs = () => $.qsa('[data-question-img="default"]', container);
 
     // Answer
     const answerContainer = $.qs('[data-question-answer="container"]', container);
@@ -29,6 +30,24 @@ Promise.resolve(getQuestions()).then(data => {
 
     counterTotal.innerHTML = data.length;
 
+    for (let i = 1; i < data.length; i++) {
+        const question = data[i];
+        const image = imageHTML.cloneNode(true);
+        const mainImg = $.qs('[data-question-img="default"]', image);
+
+        mainImg.srcset = question.images.desktop.src;
+        mainImg.classList.add('is-hidden');
+        mainImg.dataset.imgValue = i + 1;
+
+        $.qs('[data-question-img="desktop-webp"]', image).srcset = question.images.desktop.webp;
+        $.qs('[data-question-img="desktop"]', image).srcset = question.images.desktop.src;
+
+        $.qs('[data-question-img="mob-webp"]', image).srcset = question.images.mobile.webp;
+        $.qs('[data-question-img="mob"]', image).srcset = question.images.mobile.src;
+
+        imageContainer.insertAdjacentHTML('beforeEnd', image.outerHTML);
+    }
+
     btns.forEach(btn => {
         btn.addEventListener('click', () => {
             if (isAnswered) {
@@ -36,19 +55,19 @@ Promise.resolve(getQuestions()).then(data => {
                 return;
             }
 
-            const btnValue = btn.dataset.btnValue;
+            const btnIndex = btn.dataset.btnIndex;
             const questionCount = getQuestionCount();
-            const isAnswerCorrect = data[questionCount].variants[btnValue].value;
+            const isAnswerCorrect = data[questionCount].variants[btnIndex].value;
 
             isAnswerCorrect && correctAnsweredCount++;
-            setAnswer(isAnswerCorrect, questionCount, btnValue);
+            setAnswer(isAnswerCorrect, questionCount, btnIndex);
         });
     });
 
     nextBtn.addEventListener('click', () => {
         if (isAnswered && questionCount === data.length) {
             localStorage.setItem('correctAnsweredCount', correctAnsweredCount);
-
+            window.location = 'results';
             return;
         }
         setQuestion(data[questionCount]);
@@ -70,20 +89,26 @@ Promise.resolve(getQuestions()).then(data => {
         text.innerHTML = question;
 
         btns[0].innerHTML = variants[randomIndex].btn;
-        btns[0].dataset.btnValue = randomIndex;
+        btns[0].dataset.btnIndex = randomIndex;
 
         btns[1].innerHTML = variants[1 - randomIndex].btn;
-        btns[1].dataset.btnValue = 1 - randomIndex;
+        btns[1].dataset.btnIndex = 1 - randomIndex;
+
 
         container.classList.remove('is-answered');
         isAnswered = false;
+
         setQuestionCount();
+
+        for (let i = 0; i < mainImgs().length; i++) {
+            +mainImgs()[i].dataset.imgValue === questionCount ? mainImgs()[i].classList.remove('is-hidden') : mainImgs()[i].classList.add('is-hidden');
+        }
     }
 
-    function setAnswer(isCorrect, questionCount, btnValue) {
+    function setAnswer(isCorrect, questionCount, btnIndex) {
         answerState.dataset.answerValue = isCorrect;
-        answerStateText.innerHTML = data[questionCount].variants[btnValue].btn;
-        answerText.innerHTML = data[questionCount].variants[btnValue].answer;
+        answerStateText.innerHTML = data[questionCount].variants[btnIndex].btn;
+        answerText.innerHTML = data[questionCount].variants[btnIndex].answer;
 
         container.classList.add('is-answered');
         nextBtn.removeAttribute('disabled');

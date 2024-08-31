@@ -28,14 +28,14 @@
 .footer__text
     +gotham(m)
     position: relative
-    z-index: 1
+    z-index: 2
     span
         color: $brand
 
 .footer__text-title
     +gotham(m)
     font-size: 18px
-    @media ( max-width: $tab-sm )
+    @media ( max-width: $tab )
         display: none
 
 .footer__text-desc
@@ -45,7 +45,7 @@
     +gotham(r)
 
     transition: $trs
-    @media ( max-width: $tab-sm )
+    @media ( max-width: $tab )
         margin-top: 0
 
         +gotham(m)
@@ -61,6 +61,6 @@
     pointer-events: none
     user-select: none
 
-    z-index: 0
-    @media ( min-width: $tab-sm + 1 )
+    z-index: 1
+    @media ( min-width: $tab + 1 )
         display: none
