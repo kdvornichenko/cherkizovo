@@ -1,20 +1,4 @@
 extends ../templates/template.pug
 
 block content
-    .results(data-results)
-        +header(false).results__header
-        img(class="lazy results__sky ls-is-cached lazyloaded" src="assets/img/svg/results-sky.svg" alt="")
-
-        section.results__content.container--x
-            .results__title-wrapper
-                h1.results__title Вы раскусили
-                    span.results__title-highlight
-                        +svg('fire') 
-                        | <span data-correct-answered-count>X</span> из 5 вопросов
-
-            .results__text-wrapper
-                .results__text(data-results-text) Вас сложно сбить с&nbsp;толку.<br>Такое чутьё и&nbsp;аппетит к&nbsp;знаниям нам точно пригодятся!
-                .results__description Разделите наш аппетит к&nbsp;работе&nbsp;&mdash; поддержите &laquo;Черкизово&raquo; в&nbsp;Рейтинге работодателей!
-                .results__btns
-                    +btn({text: 'Поддержать', isLink: true, href: '#'}).btn--solid.results__btn
-                    +btn({text: 'вакансии', isLink: true, href: '#'}).btn--outline.results__btn
+    

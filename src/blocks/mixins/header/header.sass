@@ -1,9 +1,23 @@
+.page[data-page="questions"]
+    .header
+        justify-content: flex-end
+        svg
+            color: $white
+        @media ( max-width: $tab )
+            justify-content: flex-start
+    .header__support
+        display: none
+
 .header
     display: flex
     aic: center
     justify-content: space-between
     position: relative
     z-index: 3
+
+    transform: translateY(0)
+
+    transition: transform $trs-6
 
 .header__logo
     svg

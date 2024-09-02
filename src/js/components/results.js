@@ -1,14 +1,12 @@
-import '~/js/common';
-
 document.addEventListener('DOMContentLoaded', () => {
     const resultsContainer = $.qs('[data-results]');
 
-    if (!resultsContainer) window.location = '/';
+    if (!resultsContainer) return;
 
     const correctAnsweredCount = localStorage.getItem('correctAnsweredCount');
     const count = $.qs('[data-correct-answered-count]', resultsContainer);
 
-    if (!correctAnsweredCount) window.location = '/';
+    // if (!correctAnsweredCount) window.location = '/';
 
     const getResults = () => axios.get('/assets/json/results.json').then(res => res.data);
     const resultsText = $.qs('[data-results-text]', resultsContainer);

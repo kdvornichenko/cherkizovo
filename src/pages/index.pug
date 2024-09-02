@@ -1,18 +1,67 @@
 extends ../templates/template.pug
 
 block content
-    .main-page
+    .page.animate(data-page="main")
+        .overlay(data-overlay)
         +header
-        picture
-            source(type="image/jpeg" srcset="assets/img/svg/main-ovals.svg" media="(min-width: 769px)")
-            source(type="image/jpeg" srcset="assets/img/svg/main-ovals-mob.svg" media="(max-width: 768px)")
-            img(class="lazy main-page__sky" src="assets/img/svg/main-ovals.svg" alt="")
-        section.main-page__content.container--x
-            .main-page__title-wrapper
-                h1.main-page__title Невыдуманная<br>история
-                img(src='assets/img/svg/main-title-oval-1.svg').main-page__title-oval.main-page__title-oval--1.lazyload.lazy
-                img(src='assets/img/svg/main-title-oval-2.svg').main-page__title-oval.main-page__title-oval--2.lazyload.lazy
-                .main-page__title-descr
-                    +svg('fire')
-                    span В&nbsp;этом году &laquo;Черкизово&raquo; празднует первый юбилей!
+        .main-page
+            picture
+                source(type="image/jpeg" srcset="assets/img/svg/main-ovals.svg" media="(min-width: 769px)")
+                source(type="image/jpeg" srcset="assets/img/svg/main-ovals-mob.svg" media="(max-width: 768px)")
+                img(class="lazy main-page__sky" src="assets/img/svg/main-ovals.svg" alt="")
+            section.main-page__content.container--x
+                .main-page__title-wrapper
+                    h1.main-page__title Невыдуманная<br>история
+                    img(src='assets/img/svg/main-title-oval-1.svg').main-page__title-oval.main-page__title-oval--1.lazyload.lazy
+                    img(src='assets/img/svg/main-title-oval-2.svg').main-page__title-oval.main-page__title-oval--2.lazyload.lazy
+                    .main-page__title-descr
+                        +svg('fire')
+                        span В&nbsp;этом году &laquo;Черкизово&raquo; празднует первый юбилей!
+        
+        .question(data-question="container")
+            .question__img-holder(data-question="img")
+                picture
+                    source(type="image/webp" srcset="assets/img/webp/question-1.webp" media="(min-width: 1025px)" data-question-img="desktop-webp")
+                    source(type="image/webp" srcset="assets/img/webp/question-1-mob.webp" media="(max-width: 1024px)" data-question-img="mob-webp")
+                    source(type="image/jpeg" srcset="assets/img/question-1.png" media="(min-width: 1025px)" data-question-img="desktop")
+                    source(type="image/jpeg" srcset="assets/img/question-1-mob.png" media="(max-width: 1024px)" data-question-img="mob")
+                    img(class="lazy question__img ls-is-cached lazyloaded" src="assets/img/question-1.png" alt="" data-question-img="default"  data-img-value="1").question__img
+            .question__content
+                .question__counter
+                    span.question__counter-current(data-question="counter-current" data-counter-value="")
+                    | /
+                    span.question__counter-total(data-question="counter-total")
+
+                .question__text(data-question="text")
+                .question__btns
+                    button(type="button" data-question="btn" data-btn-index="").question__btn
+                    button(type="button" data-question="btn" data-btn-index="").question__btn
+
+                .question__answer-container(data-question-answer="container")
+                    .question__answer-inner
+                        .question__answer-state(data-question-answer="state" data-answer-value="")
+                            .question__answer-icon.question__answer-icon--true
+                                +svg('like')
+                            .question__answer-icon.question__answer-icon--false
+                                +svg('dislike')
+                            span(data-question-answer="state-text")
+                        .question__answer-text(data-question-answer="text")
+                button(type="button" data-question="next" disabled="disabled").question__next-btn Далее
+        
+        .results__wrapper(data-results)
+            img(class="lazy results__sky ls-is-cached lazyloaded" src="assets/img/svg/results-sky.svg" alt="")
+
+            section.results__content.container--x
+                .results__title-wrapper
+                    h1.results__title Вы раскусили
+                        span.results__title-highlight
+                            +svg('fire') 
+                            | <span data-correct-answered-count>X</span> из 5 вопросов
+
+                .results__text-wrapper
+                    .results__text(data-results-text) Вас сложно сбить с&nbsp;толку.<br>Такое чутьё и&nbsp;аппетит к&nbsp;знаниям нам точно пригодятся!
+                    .results__description Разделите наш аппетит к&nbsp;работе&nbsp;&mdash; поддержите &laquo;Черкизово&raquo; в&nbsp;Рейтинге работодателей!
+                    .results__btns
+                        +btn({text: 'Поддержать', isLink: true, href: '#'}).btn--solid.results__btn
+                        +btn({text: 'вакансии', isLink: true, href: '#'}).btn--outline.results__btn
         +footer

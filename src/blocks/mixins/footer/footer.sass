@@ -19,48 +19,111 @@
 
     z-index: 3
     overflow: hidden
+    transform: translateY(0)
+    transition: transform $trs-6
+
     @media ( max-width: $tab-sm )
         flex-direction: column
         row-gap: 18px
         .footer__btn
             width: 100%
 
-.footer__text
-    +gotham(m)
-    position: relative
-    z-index: 2
-    span
-        color: $brand
-
-.footer__text-title
-    +gotham(m)
-    font-size: 18px
-    @media ( max-width: $tab )
-        display: none
-
-.footer__text-desc
-    margin-top: 5px
-
-    font-size: 14px
-    +gotham(r)
-
-    transition: $trs
-    @media ( max-width: $tab )
-        margin-top: 0
-
+    .footer__text
         +gotham(m)
-        color: $light
+        position: relative
+        z-index: 2
+        span
+            color: $brand
 
-.footer__mob-img
-    position: absolute
-    top: 0
-    right: 0
+    .footer__text-title
+        +gotham(m)
+        font-size: 18px
+        @media ( max-width: $tab )
+            display: none
 
-    height: 100%
+    .footer__text-desc
+        margin-top: 5px
 
-    pointer-events: none
-    user-select: none
+        font-size: 14px
+        +gotham(r)
 
-    z-index: 1
-    @media ( min-width: $tab + 1 )
+        transition: $trs
+        @media ( max-width: $tab )
+            margin-top: 0
+
+            +gotham(m)
+            color: $light
+
+.page[data-page="main"]
+    .footer__text--questions, .footer__btn--questions, .footer__mob-img
         display: none
+
+.page[data-page="questions"]
+    .footer
+        right: $unit
+        left: unset
+        padding: 25px
+
+        z-index: 1
+
+        .footer__text--main, .footer__btn--main
+            display: none
+
+        .footer__mob-img
+            position: absolute
+            top: 0
+            right: 0
+
+            height: 100%
+
+            pointer-events: none
+            user-select: none
+
+            z-index: 1
+            @media ( min-width: $tab + 1 )
+                display: none
+
+        .footer__btn
+            .btn__icon
+                display: none
+        @media ( max-width: $tab )
+            width: 100%
+            max-width: calc(100% - #{$unit} * 2)
+
+            padding: 20px
+
+            display: flex
+            flex-direction: row
+
+            background-color: $brand
+            &::before
+                content: ''
+                position: absolute
+                top: 0
+                left: 0
+                width: 100%
+                height: 100%
+                background-color: rgba($black, 0.2)
+                z-index: 0
+            .footer__btn
+                padding: 0
+                width: fit-content
+                position: relative
+                z-index: 2
+                .btn__icon
+                    display: flex
+                    width: 44px
+                    height: 44px
+                    background-color: $light
+                    border-radius: 14px
+                    &:hover, &:active
+                        svg
+                            color: $brand-hover
+                    svg
+                        width: 20px
+                        height: 20px
+
+                        color: $brand
+                        transition: $trs
+                .btn__text
+                    display: none

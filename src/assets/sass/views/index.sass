@@ -1,94 +1,124 @@
-.main-page
-    &::before
-        content: ''
-
-        height: 100svh
+.page
+    .overlay
+        position: fixed
+        z-index: 100
+        left: -100%
+        top: 0
         width: 100vw
+        height: 100dvh
+        background-color: $brand
+        transition: left $trs-6
 
-        background-image: url('../img/main.png')
-        background-repeat: no-repeat
-        background-size: cover
-        background-position: 80% center
+    &.animate
+        .overlay
+            left: 0
+        .header
+            transform: translateY(-150%)
+        .footer
+            transform: translateY(150%)
 
-        background-color: $light
-        position: absolute
-        top: 0
-        left: 0
-
-        z-index: -1
-        @media ( max-width: $mob )
-            background-image: url('../img/main-mob.png')
-
-.main-page__sky
-    position: absolute
-    +yo('top', ($desktop-sm: 0px, $desktop-lg: -200px))
-    left: 0
-
-    width: 100%
-
-    user-select: none
-    pointer-events: none
-
-    z-index: 2
-    @media ( max-width: $tab-sm )
-        top: -100px
-
-    @media ( max-width: $mob )
-        top: 0
-
-.main-page__title-wrapper
-    position: relative
-    width: 100%
-
-.main-page__title
-    color: $brand
-
-    margin-top: 40px
-    width: fit-content
-
-    line-height: 90%
-    letter-spacing: -4%
-    @media ( max-width: $tab-sm )
-        position: relative
-        z-index: 3
-
-.main-page__title-oval
-    position: absolute
-    user-select: none
-    pointer-events: none
-    @media ( max-width: $tab-sm )
+.page[data-page="main"]
+    &.animate
+        .main-page__title-wrapper
+            scale: 0
+            opacity: 0
+    .question, .results__wrapper
         display: none
 
-.main-page__title-oval--1
-    top: 20px
-    left: 0
+    .main-page
+        &::before
+            content: ''
 
-.main-page__title-oval--2
-    top: 20px
-    right: 50%
+            height: 100svh
+            width: 100vw
 
-    transform: translateX(50%)
+            background-image: url('../img/main.png')
+            background-repeat: no-repeat
+            background-size: cover
+            background-position: 80% center
 
-.main-page__title-descr
-    +yo('margin-top', ($mob: 20px, $desktop-md: 25px))
-    +yo('padding-inline', ($mob: 15px, $desktop-md: 20px))
-    +yo('padding-block', ($mob: 10px, $desktop-md: 14px))
+            background-color: $light
+            position: absolute
+            top: 0
+            left: 0
 
-    display: flex
-    align-items: center
-    column-gap: 13px
+            z-index: -1
+            @media ( max-width: $mob )
+                background-image: url('../img/main-mob.png')
 
-    width: fit-content
+    .main-page__sky
+        position: absolute
+        +yo('top', ($desktop-sm: 0px, $desktop-lg: -200px))
+        left: 0
 
-    border: 1px solid $brown
-    border-radius: 100px
+        width: 100%
 
-    +gotham(m)
-    +yo('font-size', ($mob: 16px, $desktop-md: 18px, $desktop-lg: 20px))
+        user-select: none
+        pointer-events: none
 
-    position: relative
-    z-index: 3
-    svg
-        width: 21px
-        height: 26px
-        flex: 1 0 auto
+        z-index: 2
+        @media ( max-width: $tab-sm )
+            top: -100px
+
+        @media ( max-width: $mob )
+            top: 0
+
+    .main-page__title-wrapper
+        position: relative
+        width: 100%
+        scale: 1
+        opacity: 1
+        transition: all $trs-6
+
+    .main-page__title
+        color: $brand
+
+        margin-top: 40px
+        width: fit-content
+
+        line-height: 90%
+        letter-spacing: -4%
+        @media ( max-width: $tab-sm )
+            position: relative
+            z-index: 3
+
+    .main-page__title-oval
+        position: absolute
+        user-select: none
+        pointer-events: none
+        @media ( max-width: $tab-sm )
+            display: none
+
+    .main-page__title-oval--1
+        top: 20px
+        left: 0
+
+    .main-page__title-oval--2
+        top: 20px
+        right: 50%
+
+        transform: translateX(50%)
+
+    .main-page__title-descr
+        +yo('margin-top', ($mob: 20px, $desktop-md: 25px))
+        +yo('padding-inline', ($mob: 15px, $desktop-md: 20px))
+        +yo('padding-block', ($mob: 10px, $desktop-md: 14px))
+
+        display: flex
+        align-items: center
+        column-gap: 13px
+
+        width: fit-content
+
+        border: 1px solid $brown
+        border-radius: 100px
+
+        +gotham(m)
+        +yo('font-size', ($mob: 16px, $desktop-md: 18px, $desktop-lg: 20px))
+
+        position: relative
+        z-index: 3
+        svg
+            width: 21px
+            height: 26px
+            flex: 1 0 auto
