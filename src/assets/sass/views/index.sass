@@ -37,12 +37,11 @@
             background-size: cover
             background-position: 80% center
 
-            background-color: $light
-            position: absolute
+            position: fixed
             top: 0
             left: 0
 
-            z-index: -1
+            z-index: 1
             @media ( max-width: $mob )
                 background-image: url('../img/main-mob.png')
 
@@ -56,7 +55,7 @@
         user-select: none
         pointer-events: none
 
-        z-index: 2
+        z-index: 1
         @media ( max-width: $tab-sm )
             top: -100px
 
@@ -69,11 +68,13 @@
         scale: 1
         opacity: 1
         transition: all $trs-6
+        @media ( max-width: $tab-sm )
+            position: relative
+            z-index: 2
 
     .main-page__title
         color: $brand
 
-        margin-top: 40px
         width: fit-content
 
         line-height: 90%
