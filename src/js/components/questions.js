@@ -44,7 +44,7 @@ document.addEventListener('page-transition:end', ({ detail }) => {
 });
 
 function setQuestionsPage() {
-    const getQuestions = () => axios.get('/assets/json/questions.json').then(res => res.data);
+    const getQuestions = () => axios.get('assets/json/questions.json').then(res => res.data);
 
     Promise.resolve(getQuestions()).then(data => {
         const container = $.qs('[data-question="container"]');

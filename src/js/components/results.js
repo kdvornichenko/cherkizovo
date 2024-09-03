@@ -7,7 +7,7 @@ document.addEventListener('page-transition:end', ({ detail }) => {
     const correctAnsweredCount = localStorage.getItem('correctAnsweredCount');
     const count = $.qs('[data-correct-answered-count]', resultsContainer);
 
-    const getResults = () => axios.get('/assets/json/results.json').then(res => res.data);
+    const getResults = () => axios.get('assets/json/results.json').then(res => res.data);
     const resultsText = $.qs('[data-results-text]', resultsContainer);
 
     count.textContent = correctAnsweredCount;
