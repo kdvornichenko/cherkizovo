@@ -44,10 +44,16 @@
 
     transition: $trs
 
-    &:hover, &:active
+    &:hover
         border-color: $brand
         .btn__text
             color: $brand-hover
+
+    &:active
+        border-color: $brand-hover
+        background-color: $brand-hover
+        .btn__text
+            color: $white
 
     .btn__text
         color: $brand

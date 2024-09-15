@@ -1,9 +1,9 @@
-<svg width="348" height="486" viewBox="0 0 348 486" fill="none" xmlns="http://www.w3.org/2000/svg">
+<svg width="732" height="486" viewBox="0 0 732 486" fill="none" xmlns="http://www.w3.org/2000/svg">
 <g filter="url(#filter0_f_28_134)">
-<ellipse cx="-17.9839" cy="242.679" rx="227.388" ry="55.946" transform="rotate(-19.5112 -17.9839 242.679)" fill="#DFF0F5" fill-opacity="0.6"/>
+<ellipse cx="366.016" cy="242.679" rx="227.388" ry="55.946" transform="rotate(-19.5112 366.016 242.679)" fill="#DFF0F5" fill-opacity="0.6"/>
 </g>
 <defs>
-<filter id="filter0_f_28_134" x="-383.14" y="0.212646" width="730.313" height="484.933" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+<filter id="filter0_f_28_134" x="0.859619" y="0.212402" width="730.313" height="484.933" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
 <feFlood flood-opacity="0" result="BackgroundImageFix"/>
 <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
 <feGaussianBlur stdDeviation="75" result="effect1_foregroundBlur_28_134"/>

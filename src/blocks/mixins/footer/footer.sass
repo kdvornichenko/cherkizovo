@@ -4,18 +4,7 @@
     right: $unit
     +yo('bottom', ($mob: 23px, $desktop-md: 30px))
 
-    display: flex
-    align-items: center
-    justify-content: space-between
-    column-gap: 26px
-
-    +yo('padding-inline', ($mob: 16px, $desktop-md: 24px))
-    +yo('padding-block', ($mob: 16px, $desktop-md: 20px))
-
-    max-width: 870px
-
-    background-color: rgba($white, 0.75)
-    border-radius: 20px
+    max-width: calc(870px + 24px * 2)
 
     z-index: 3
     overflow: hidden
@@ -27,6 +16,18 @@
         row-gap: 18px
         .footer__btn
             width: 100%
+
+    .footer__inner
+        display: flex
+        align-items: center
+        justify-content: space-between
+        column-gap: 26px
+
+        +yo('padding-inline', ($mob: 16px, $desktop-md: 24px))
+        +yo('padding-block', ($mob: 16px, $desktop-md: 20px))
+
+        background-color: rgba($white, 0.75)
+        border-radius: 20px
 
     .footer__text
         +gotham(m)
@@ -52,7 +53,6 @@
             margin-top: 0
 
             +gotham(m)
-            color: $light
 
 .page[data-page="main"]
     .footer__text--questions, .footer__btn--questions, .footer__mob-img
@@ -62,9 +62,24 @@
     .footer
         right: $unit
         left: unset
-        padding: 25px
 
         z-index: 1
+
+        max-width: unset
+        width: 100%
+
+        grid-template-columns: repeat(2,1fr)
+        display: grid
+
+        padding: 0
+
+        .footer__inner
+            margin-left: $unit
+
+            grid-column: 2 / 3
+            @media ( max-width: $tab )
+                width: 100%
+                margin-left: 0
 
         .footer__text--main, .footer__btn--main
             display: none
@@ -86,25 +101,14 @@
         .footer__btn
             .btn__icon
                 display: none
+
         @media ( max-width: $tab )
             width: 100%
             max-width: calc(100% - #{$unit} * 2)
 
-            padding: 20px
-
             display: flex
             flex-direction: row
 
-            background-color: $brand
-            &::before
-                content: ''
-                position: absolute
-                top: 0
-                left: 0
-                width: 100%
-                height: 100%
-                background-color: rgba($black, 0.2)
-                z-index: 0
             .footer__btn
                 padding: 0
                 width: fit-content
@@ -114,16 +118,17 @@
                     display: flex
                     width: 44px
                     height: 44px
-                    background-color: $light
+                    background-color: $brand
                     border-radius: 14px
+
+                    transition: $trs
                     &:hover, &:active
-                        svg
-                            color: $brand-hover
+                        background-color: $brand-hover
                     svg
                         width: 20px
                         height: 20px
 
-                        color: $brand
+                        color: $white
                         transition: $trs
                 .btn__text
                     display: none

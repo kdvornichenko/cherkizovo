@@ -16,7 +16,7 @@ block content
                     img(src='assets/img/svg/main-title-oval-2.svg').main-page__title-oval.main-page__title-oval--2.lazyload.lazy
                 .main-page__title-descr
                     +svg('fire')
-                    span В&nbsp;этом году &laquo;Черкизово&raquo; празднует первый юбилей!
+                    span В&nbsp;этом году &laquo;Черкизово&raquo;<br> празднует 50&nbsp;лет!
         
         .question(data-question="container")
             .question__img-holder(data-question="img")
@@ -49,7 +49,7 @@ block content
                 button(type="button" data-question="next" disabled="disabled").question__next-btn Далее
         
         .results__wrapper(data-results)
-            img(class="lazy results__sky ls-is-cached lazyloaded" src="assets/img/svg/results-sky.svg" alt="")
+            img(class="lazy results__sky" src="assets/img/svg/results-sky.svg" alt="")
 
             section.results__content.container--x
                 .results__title-wrapper
@@ -64,4 +64,7 @@ block content
                     .results__btns
                         +btn({text: 'Поддержать', isLink: true, href: '#'}).btn--solid.results__btn
                         +btn({text: 'вакансии', isLink: true, href: '#'}).btn--outline.results__btn
+
+            img(class="lazy results__bottom-overlay" src="assets/img/svg/results-bottom-overlay.svg" alt="")
+            
         +footer

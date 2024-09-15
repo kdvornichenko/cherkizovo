@@ -26,6 +26,9 @@
         display: none
 
     .main-page
+        @media ( max-width: $tab-sm )
+            margin-top: 24px
+
         &::before
             content: ''
 
@@ -47,18 +50,17 @@
 
     .main-page__sky
         position: absolute
-        +yo('top', ($desktop-sm: 0px, $desktop-lg: -200px))
+        +yo('top', ($desktop-sm: -20px, $desktop-lg: -200px))
         left: 0
 
-        width: 100%
+        width: 130%
 
         user-select: none
         pointer-events: none
 
         z-index: 1
         @media ( max-width: $tab-sm )
-            top: -100px
-
+            width: 100%
         @media ( max-width: $mob )
             top: 0
 
@@ -76,9 +78,12 @@
         color: $brand
 
         width: fit-content
+        hyphens: auto
 
         line-height: 90%
-        letter-spacing: -4%
+        +yo('letter-spacing', ($mob: 0, $desktop-md: -5px))
+        +yo('margin-left', ($mob: 0, $desktop-md: -10px))
+
         @media ( max-width: $tab-sm )
             position: relative
             z-index: 3
@@ -91,8 +96,8 @@
             display: none
 
     .main-page__title-oval--1
-        top: 20px
-        left: 0
+        top: 100px
+        left: -20%
 
     .main-page__title-oval--2
         top: 20px
@@ -116,9 +121,18 @@
 
         +gotham(m)
         +yo('font-size', ($mob: 16px, $desktop-md: 18px, $desktop-lg: 20px))
+        line-height: 22px
 
         position: relative
         z-index: 3
+
+        @media ( max-width: 410px )
+            padding-right: 24px
+
+        @media ( min-width: 410px )
+            br
+                display: none
+
         svg
             width: 21px
             height: 26px
