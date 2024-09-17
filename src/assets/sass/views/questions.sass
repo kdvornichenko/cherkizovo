@@ -12,16 +12,22 @@
             background-color: $brand
 
             &.is-answered
+                padding-bottom: var(--padding-bottom, 0)
                 .question__btns
                     display: none
                 .question__answer-container
                     display: block
                 .question__next-btn
                     display: block
+                @media ( max-width: $mob )
+                    .question__img-holder
+                        opacity: 0
+
             @media ( max-width: $tab )
                 grid-template-columns: 1fr
 
         .question__img-holder
+            transition: $trs
             img
                 transition: $trs
                 &.is-hidden
@@ -40,7 +46,7 @@
                 left: 50%
                 transform: translate(-50%, 0%)
                 top: unset
-                bottom: 40px
+                bottom: 90px
             @media ( max-width: $mob )
                 width: 95%
                 height: auto
@@ -70,6 +76,10 @@
             line-height: 140%
 
             color: rgba($light, 0.6)
+            @media ( max-width: $mob )
+                position: fixed
+                top: 20px
+                right: $unit
 
         .question__counter-current
             color: $white

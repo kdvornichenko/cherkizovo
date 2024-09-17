@@ -1,0 +1,11 @@
+@font-face
+    font-family: 'Proxima-Semibold'
+    src: url('../fonts/proxima/Proxima-SemiBold.woff2') format('woff2'),url('../fonts/proxima/Proxima-SemiBold.woff') format('woff')
+    font-style: normal
+    font-weight: 600
+    font-display: swap
+
+=proxima($weight: sb)
+    @if $weight == sb
+        font-family: 'Proxima-SemiBold', sans-serif
+        font-weight: 600

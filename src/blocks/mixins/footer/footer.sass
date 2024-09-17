@@ -4,16 +4,21 @@
     right: $unit
     +yo('bottom', ($mob: 23px, $desktop-md: 30px))
 
-    max-width: calc(870px + 24px * 2)
+    width: calc(100% - #{$unit} * 2)
+
+    display: grid
+    grid-template-columns: 1fr auto
+    align-items: flex-end
+    column-gap: 24px
 
     z-index: 3
     overflow: hidden
     transform: translateY(0)
     transition: transform $trs-6
 
-    @media ( max-width: $tab-sm )
-        flex-direction: column
-        row-gap: 18px
+    @media ( max-width: $tab )
+        grid-template-columns: 1fr
+        row-gap: 14px
         .footer__btn
             width: 100%
 
@@ -22,12 +27,17 @@
         align-items: center
         justify-content: space-between
         column-gap: 26px
+        row-gap: 18px
+
+        max-width: calc(870px + 24px * 2)
 
         +yo('padding-inline', ($mob: 16px, $desktop-md: 24px))
         +yo('padding-block', ($mob: 16px, $desktop-md: 20px))
 
         background-color: rgba($white, 0.75)
         border-radius: 20px
+        @media ( max-width: $tab-sm )
+            flex-direction: column
 
     .footer__text
         +gotham(m)
@@ -54,60 +64,93 @@
 
             +gotham(m)
 
+    .footer__signature
+        padding-inline: 24px
+        +yo('padding-block', ($mob: 6px, $desktop-md: 8px))
+
+        display: flex
+        align-items: center
+        justify-content: space-between
+        column-gap: 20px
+
+        width: fit-content
+        height: fit-content
+
+        background-color: rgba($white, 0.2)
+        backdrop-filter: blur(30px)
+        border-radius: 10px
+
+        color: $white
+
+        @media ( max-width: $tab )
+            justify-content: center
+            width: 100%
+
+    .footer__signature-left
+        +gotham(b)
+        font-size: 14px
+
+    .footer__signature-right
+        display: flex
+        align-items: center
+        column-gap: 6px
+
+        +proxima
+        font-size: 16px
+
 .page[data-page="main"]
     .footer__text--questions, .footer__btn--questions, .footer__mob-img
         display: none
 
 .page[data-page="questions"]
     .footer
+        position: absolute
         right: $unit
         left: unset
+        bottom: var(--bottom, 23px)
 
         z-index: 1
 
         max-width: unset
-        width: 100%
 
-        grid-template-columns: repeat(2,1fr)
         display: grid
+        grid-template-columns: repeat(2,1fr)
+        grid-template-rows: 1fr
 
         padding: 0
 
         .footer__inner
-            margin-left: $unit
-
             grid-column: 2 / 3
+            grid-row: 1
+            max-width: 100%
+            backdrop-filter: blur(30px)
             @media ( max-width: $tab )
+                grid-column: 1 / 3
                 width: 100%
                 margin-left: 0
 
+            @media ( max-width: $tab-sm )
+                flex-direction: row
+
         .footer__text--main, .footer__btn--main
             display: none
-
-        .footer__mob-img
-            position: absolute
-            top: 0
-            right: 0
-
-            height: 100%
-
-            pointer-events: none
-            user-select: none
-
-            z-index: 1
-            @media ( min-width: $tab + 1 )
-                display: none
 
         .footer__btn
             .btn__icon
                 display: none
 
+        .footer__signature
+            grid-column: 1 / 2
+            grid-row: 1
+            background-color: $brand-hover
+            @media ( max-width: $tab )
+                grid-column: 1 / 3
+                grid-row: 2
+
         @media ( max-width: $tab )
             width: 100%
             max-width: calc(100% - #{$unit} * 2)
-
-            display: flex
-            flex-direction: row
+            row-gap: 20px
 
             .footer__btn
                 padding: 0

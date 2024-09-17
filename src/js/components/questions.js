@@ -51,6 +51,7 @@ function setQuestionsPage() {
 
         if (!container) return;
 
+        const footer = $.qs('footer');
         // Question
         const imageContainer = $.qs('[data-question="img"]', container);
         const imageHTML = $.qs('picture', imageContainer);
@@ -111,6 +112,9 @@ function setQuestionsPage() {
                 return;
             }
             setQuestion(data[questionCount]);
+
+            container.style.setProperty('--padding-bottom', 0);
+            footer.style.removeProperty('--bottom');
         });
 
         setQuestion(data[0]);
@@ -153,6 +157,31 @@ function setQuestionsPage() {
             container.classList.add('is-answered');
             nextBtn.removeAttribute('disabled');
             isAnswered = true;
+
+            function getDistanceFromBottomToTop(elem1, elem2) {
+                // Получаем координаты первого элемента
+                const rect1 = elem1.getBoundingClientRect();
+                // Получаем координаты второго элемента
+                const rect2 = elem2.getBoundingClientRect();
+
+                // Нижняя точка первого элемента (по вертикали)
+                const bottomOfElem1 = rect1.bottom;
+                // Верхняя точка второго элемента (по вертикали)
+                const topOfElem2 = rect2.top;
+
+                // Вычисляем расстояние от нижней точки первого элемента до верхней точки второго
+                const verticalDistance = topOfElem2 - bottomOfElem1;
+
+                return verticalDistance;
+            }
+
+            const distance = getDistanceFromBottomToTop(answerContainer, footer);
+            console.log(distance);
+
+            if (distance - 70 < 0) {
+                container.style.setProperty('--padding-bottom', 180 + 'px');
+                footer.style.setProperty('--bottom', distance - 80 + 'px');
+            }
         }
     });
 }
