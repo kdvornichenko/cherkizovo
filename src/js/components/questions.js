@@ -179,7 +179,7 @@ function setQuestionsPage() {
             console.log(distance);
 
             if (distance - 70 < 0) {
-                container.style.setProperty('--padding-bottom', 180 + 'px');
+                container.style.setProperty('--padding-bottom', 140 + 'px');
                 footer.style.setProperty('--bottom', distance - 80 + 'px');
             }
         }

@@ -1,6 +1,16 @@
 .page[data-page="results"]
-    .main-page, .question, .footer, .header .header__support
+    .main-page, .question, .footer__inner, .header .header__support
         display: none
+
+    .footer
+        +yo('bottom', ($mob: 23px, $desktop-md: 40px))
+        @media ( max-width: $tab )
+            .footer__signature
+                width: fit-content
+
+        @media ( max-width: $mob )
+            .footer__signature
+                width: 100%
 
 .results
     position: fixed
