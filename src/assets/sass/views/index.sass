@@ -27,7 +27,7 @@
 
     .main-page
         @media ( max-width: $tab-sm )
-            margin-top: 24px
+            margin-top: 10px
 
         &::before
             content: ''
@@ -41,7 +41,7 @@
             background-position: 80% center
 
             position: fixed
-            top: 0
+            bottom: 0
             left: 0
 
             z-index: 1
@@ -106,7 +106,7 @@
         transform: translateX(50%)
 
     .main-page__title-descr
-        +yo('margin-top', ($mob: 20px, $desktop-md: 25px))
+        +yo('margin-top', ($mob: 16px, $desktop-md: 25px))
         +yo('padding-inline', ($mob: 15px, $desktop-md: 20px))
         +yo('padding-block', ($mob: 10px, $desktop-md: 14px))
 

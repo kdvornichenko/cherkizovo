@@ -2,7 +2,7 @@
     position: fixed
     left: $unit
     right: $unit
-    +yo('bottom', ($mob: 23px, $desktop-md: 30px))
+    +yo('bottom', ($mob: 16px, $desktop-md: 30px))
 
     width: calc(100% - #{$unit} * 2)
 
@@ -18,7 +18,7 @@
 
     @media ( max-width: $tab )
         grid-template-columns: 1fr
-        row-gap: 14px
+        row-gap: 10px
         .footer__btn
             width: 100%
 
@@ -27,7 +27,7 @@
         align-items: center
         justify-content: space-between
         column-gap: 26px
-        row-gap: 18px
+        row-gap: 10px
 
         max-width: calc(870px + 24px * 2)
 
