@@ -15,7 +15,7 @@ const devWebpackConfig = merge(baseWebpackConfig, {
         static: {
             directory: baseWebpackConfig.externals.paths.dist,
         },
-        port: 8081,
+        port: 8082,
         client: {
             overlay: {
                 warnings: true,
