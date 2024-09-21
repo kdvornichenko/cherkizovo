@@ -48,11 +48,17 @@
 
             transition: $trs
             z-index: -1
+            @media ( max-width: $tab )
+                top: unset
+                bottom: -60px
+                height: 90%
             @media ( max-width: $mob )
                 position: relative
 
                 display: block
-                margin-top: -30px
+                margin-top: -50px
+                bottom: 0
+                height: 100%
 
                 height: auto
 
@@ -107,7 +113,7 @@
                 display: block
                 margin-top: auto
                 @media ( max-width: $mob )
-                    margin-top: -80px
+                    margin-top: -90px
 
         .question__counter
             display: flex
@@ -174,10 +180,6 @@
 
         .question__answer-container
             display: none
-
-            margin-top: 34px
-            @media ( max-width: $mob )
-                margin-top: 0
 
         .question__answer-inner
             +yo('padding-inline', ($mob: 20px, $desktop-md: 26px, $desktop-lg: 30px))
