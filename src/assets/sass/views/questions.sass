@@ -103,9 +103,10 @@
 
             position: relative
             z-index: 2
+
+            +yo('padding-bottom', ($mob: 18px, $desktop-md: 24px))
             @media ( max-width: $tab )
                 padding-left: $unit
-                padding-bottom: 18px
 
             .question__footer
                 display: block
