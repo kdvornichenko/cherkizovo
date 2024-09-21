@@ -10,6 +10,7 @@ toQuestionsBtn.addEventListener('click', pageTransition);
 
 function pageTransition() {
     page.classList.add('animate');
+    page.style.overflowY = 'hidden';
 
     overlay.addEventListener('transitionend', () => {
         if (!page.classList.contains('animate')) return;
@@ -41,6 +42,10 @@ document.addEventListener('page-transition:end', ({ detail }) => {
     }
     /* eslint-enable */
     page.classList.remove('animate');
+
+    setTimeout(() => {
+        page.style.overflowY = 'auto';
+    }, 600);
 });
 
 function setQuestionsPage() {
@@ -157,31 +162,6 @@ function setQuestionsPage() {
             container.classList.add('is-answered');
             nextBtn.removeAttribute('disabled');
             isAnswered = true;
-
-            function getDistanceFromBottomToTop(elem1, elem2) {
-                // Получаем координаты первого элемента
-                const rect1 = elem1.getBoundingClientRect();
-                // Получаем координаты второго элемента
-                const rect2 = elem2.getBoundingClientRect();
-
-                // Нижняя точка первого элемента (по вертикали)
-                const bottomOfElem1 = rect1.bottom;
-                // Верхняя точка второго элемента (по вертикали)
-                const topOfElem2 = rect2.top;
-
-                // Вычисляем расстояние от нижней точки первого элемента до верхней точки второго
-                const verticalDistance = topOfElem2 - bottomOfElem1;
-
-                return verticalDistance;
-            }
-
-            const distance = getDistanceFromBottomToTop(answerContainer, footer);
-            console.log(distance);
-
-            if (distance - 70 < 0) {
-                container.style.setProperty('--padding-bottom', 140 + 'px');
-                footer.style.setProperty('--bottom', distance - 80 + 'px');
-            }
         }
     });
 }

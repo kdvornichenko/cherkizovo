@@ -1,15 +1,19 @@
 .page[data-page="questions"]
+    padding-bottom: 0
     .main-page, .results__wrapper
         display: none
 
     &.questions
         background-color: $brand
-        height: 100dvh
+        height: 100svh
+        overflow: auto
 
         .question
             display: grid
             grid-template-columns: repeat(2,1fr)
             background-color: $brand
+
+            height: calc(100% - 152px)
 
             &.is-answered
                 padding-bottom: var(--padding-bottom, 0)
@@ -21,20 +25,43 @@
                     display: block
                 @media ( max-width: $mob )
                     .question__img-holder
-                        opacity: 0
+                        display: none
+                    .question__footer
+                        margin-top: auto
 
             @media ( max-width: $tab )
                 grid-template-columns: 1fr
+                height: calc(100% - 94px)
+
+        .question__img-fake
+            @media ( max-width: $tab )
+                display: contents
 
         .question__img-holder
+            position: fixed
+            top: 0
+            left: 0
+            width: 100%
+            height: 100%
+
+            pointer-events: none
+
             transition: $trs
-            img
-                transition: $trs
-                &.is-hidden
-                    opacity: 0
-                    visibility: hidden
-                    user-select: none
-                    pointer-events: none
+            z-index: -1
+            @media ( max-width: $mob )
+                position: relative
+
+                display: block
+                margin-top: -30px
+
+                height: auto
+
+                z-index: 0
+                picture
+                    &:first-child
+                        img
+                            position: static
+                            transform: translate(0)
 
         .question__img
             position: absolute
@@ -42,22 +69,45 @@
             height: 100%
             z-index: 0
             +yo('left', ($tab:-260px, $desktop-md: 0px))
+
+            transition: $trs
+            &.is-hidden
+                opacity: 0
+                visibility: hidden
+                user-select: none
+                pointer-events: none
             @media ( max-width: $tab )
                 left: 50%
                 transform: translate(-50%, 0%)
                 top: unset
                 bottom: 40px
+
             @media ( max-width: $mob )
-                width: 95%
+                top: 0
+                bottom: unset
+                width: 100%
                 height: auto
 
         .question__content
+            flex-direction: column
+            display: flex
+            row-gap: 20px
+
             padding-right: $unit
 
             position: relative
             z-index: 2
             @media ( max-width: $tab )
                 padding-left: $unit
+
+            @media ( max-width: $mob )
+                padding-bottom: 18px
+
+            .question__footer
+                display: block
+                margin-top: auto
+                @media ( max-width: $mob )
+                    margin-top: -80px
 
         .question__counter
             display: flex
@@ -80,13 +130,12 @@
                 position: fixed
                 top: 20px
                 right: $unit
+                z-index: 3
 
         .question__counter-current
             color: $white
 
         .question__text
-            +yo('margin-top', ($mob: 14px, $desktop-md: 22px, $desktop-lg: 26px))
-
             +gotham(m)
             +yo('font-size', ($mob: 20px, $desktop-md: 24px, $desktop-lg: 34px))
             letter-spacing: -1%
@@ -102,6 +151,10 @@
             +yo('row-gap',($mob: 10px, $desktop-md: 12px, $desktop-lg: 14px))
 
             width: 100%
+
+            z-index: 2
+            @media ( max-width: $mob )
+                margin-bottom: auto
 
         .question__btn
             width: 100%
@@ -123,6 +176,8 @@
             display: none
 
             margin-top: 34px
+            @media ( max-width: $mob )
+                margin-top: 0
 
         .question__answer-inner
             +yo('padding-inline', ($mob: 20px, $desktop-md: 26px, $desktop-lg: 30px))
@@ -181,7 +236,6 @@
             display: none
 
             padding: 17px
-            +yo('margin-top', ($mob: 14px, $desktop-md: 20px, $desktop-lg: 24px))
             width: 100%
 
             border: 1px solid $white

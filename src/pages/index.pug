@@ -19,13 +19,7 @@ block content
                     span В&nbsp;этом году &laquo;Черкизово&raquo;<br> празднует 50&nbsp;лет!
         
         .question(data-question="container")
-            .question__img-holder(data-question="img")
-                picture
-                    source(type="image/webp" srcset="assets/img/webp/question-1.webp" media="(min-width: 1025px)" data-question-img="desktop-webp")
-                    source(type="image/webp" srcset="assets/img/webp/question-1-mob.webp" media="(max-width: 1024px)" data-question-img="mob-webp")
-                    source(type="image/jpeg" srcset="assets/img/question-1.png" media="(min-width: 1025px)" data-question-img="desktop")
-                    source(type="image/jpeg" srcset="assets/img/question-1-mob.png" media="(max-width: 1024px)" data-question-img="mob")
-                    img(class="lazy question__img ls-is-cached lazyloaded" src="assets/img/question-1.png" alt="" data-question-img="default"  data-img-value="1").question__img
+            .question__img-fake
             .question__content
                 .question__counter
                     span.question__counter-current(data-question="counter-current" data-counter-value="")
@@ -47,6 +41,22 @@ block content
                             span(data-question-answer="state-text")
                         .question__answer-text(data-question-answer="text")
                 button(type="button" data-question="next" disabled="disabled").question__next-btn Далее
+
+                .question__img-holder(data-question="img")
+                    picture
+                        source(type="image/webp" srcset="assets/img/webp/question-1.webp" media="(min-width: 1025px)" data-question-img="desktop-webp")
+                        source(type="image/webp" srcset="assets/img/webp/question-1-mob.webp" media="(max-width: 1024px)" data-question-img="mob-webp")
+                        source(type="image/jpeg" srcset="assets/img/question-1.png" media="(min-width: 1025px)" data-question-img="desktop")
+                        source(type="image/jpeg" srcset="assets/img/question-1-mob.png" media="(max-width: 1024px)" data-question-img="mob")
+                        img(class="lazy question__img ls-is-cached lazyloaded" src="assets/img/question-1.png" alt="" data-question-img="default"  data-img-value="1").question__img
+
+                .question__footer.footer
+                    .footer__inner
+                            .footer__text.footer__text--questions
+                                .footer__text-title Разделяете наш аппетит к&nbsp;работе?
+                                .footer__text-desc Поддержите &laquo;Черкизово&raquo; в&nbsp;Рейтинге работодателей!
+                            +btn({text: 'Поддержать', icon: 'arrow-right', isLink: true}).footer__btn.footer__btn--questions.btn--solid
+
         
         .results__wrapper(data-results)
             img(class="lazy results__sky" src="assets/img/svg/results-sky.svg" alt="")
