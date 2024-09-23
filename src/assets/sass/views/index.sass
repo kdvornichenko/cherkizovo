@@ -128,8 +128,6 @@
 
         border: 1px solid $brown
         border-radius: 100px
-        background-color: rgba(#EAF8FE, 0.5)
-        backdrop-filter: blur(30px)
 
         +gotham(m)
         +yo('font-size', ($mob: 16px, $desktop-md: 18px, $desktop-lg: 20px))
@@ -142,6 +140,10 @@
         opacity: 1
         transition: all $trs-6
         transform-origin: left
+        @media ( max-width: $tab )
+            background-color: rgba(#EAF8FE, 0.5)
+            backdrop-filter: blur(30px)
+
         @media ( max-width: $mob )
             border-radius: 16px
 
