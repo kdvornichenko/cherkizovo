@@ -1,6 +1,6 @@
 mixin btn(data)
     if data.isLink
-        a(href=data.href || '#').btn&attributes(attributes)
+        a(href=data.href || '#' target="_blank").btn&attributes(attributes)
             if data.icon
                 span.btn__icon
                     +svg(data.icon)
