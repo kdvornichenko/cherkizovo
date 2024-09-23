@@ -19,4 +19,6 @@ document.addEventListener('page-transition:end', ({ detail }) => {
             resultsText.innerHTML = res[1];
         }
     });
+
+    page.scroll(0, 0);
 });

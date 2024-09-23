@@ -2,6 +2,7 @@ let questionCount = 0;
 let isAnswered = false;
 let correctAnsweredCount = 0;
 
+const header = $.qs('header');
 const page = $.qs('[data-page]');
 const overlay = $.qs('[data-overlay]', page);
 const toQuestionsBtn = $.qs('[data-btn-to="questions"]', page);
@@ -50,6 +51,7 @@ document.addEventListener('page-transition:end', ({ detail }) => {
 
 function setQuestionsPage() {
     const getQuestions = () => axios.get('assets/json/questions.json').then(res => res.data);
+    page.scroll(0, 0);
 
     Promise.resolve(getQuestions()).then(data => {
         const container = $.qs('[data-question="container"]');
@@ -152,6 +154,8 @@ function setQuestionsPage() {
             for (let i = 0; i < mainImgs().length; i++) {
                 +mainImgs()[i].dataset.imgValue === questionCount ? mainImgs()[i].classList.remove('is-hidden') : mainImgs()[i].classList.add('is-hidden');
             }
+
+            page.scroll(0, 0);
         }
 
         function setAnswer(isCorrect, questionCount, btnIndex) {
@@ -162,6 +166,8 @@ function setQuestionsPage() {
             container.classList.add('is-answered');
             nextBtn.removeAttribute('disabled');
             isAnswered = true;
+
+            page.scroll(0, header.getBoundingClientRect().height + 10);
         }
     });
 }
