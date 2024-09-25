@@ -58,6 +58,11 @@
             @media ( max-width: $mob )
                 background-image: url('../img/main-mob.png')
 
+    .main-page__content
+        margin-top: -30px
+        @media ( max-width: $desktop-sm)
+            margin-top: 0
+
     .main-page__sky
         position: absolute
         +yo('top', ($desktop-sm: -20px, $desktop-lg: -200px))
