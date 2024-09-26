@@ -55,7 +55,7 @@ block content
                             .footer__text.footer__text--questions
                                 .footer__text-title Разделяете наш аппетит к&nbsp;работе?
                                 .footer__text-desc Поддержите &laquo;Черкизово&raquo; в&nbsp;Рейтинге работодателей!
-                            +btn({text: 'Поддержать', icon: 'arrow-right', isLink: true}).footer__btn.footer__btn--questions.btn--solid
+                            +btn({text: 'Поддержать', icon: 'arrow-right', isLink: true, href: 'https://rating.hh.ru/poll/?utm_source=cherkizovo_hh&utm_medium=referral&utm_campaign=special_project'}).footer__btn.footer__btn--questions.btn--solid(onclick="ym(94739656, 'reachGoal', 'cherkizovo24_test_support'); return true;")
 
         
         .results__wrapper(data-results)
@@ -72,8 +72,8 @@ block content
                     .results__text(data-results-text) Вас сложно сбить с&nbsp;толку.<br>Такое чутьё и&nbsp;аппетит к&nbsp;знаниям нам точно пригодятся!
                     .results__description Разделите наш аппетит к&nbsp;работе&nbsp;&mdash; поддержите &laquo;Черкизово&raquo; в&nbsp;Рейтинге работодателей!
                     .results__btns
-                        +btn({text: 'Поддержать', isLink: true, href: '#'}).btn--solid.results__btn
-                        +btn({text: 'вакансии', isLink: true, href: '#'}).btn--outline.results__btn
+                        +btn({text: 'Поддержать', isLink: true, href: 'https://rating.hh.ru/poll/?utm_source=cherkizovo_hh&utm_medium=referral&utm_campaign=special_project'}).btn--solid.results__btn(onclick="ym(94739656, 'reachGoal', 'cherkizovo24_results_support'); return true;")
+                        +btn({text: 'вакансии', isLink: true, href: 'https://hh.ru/employer/1346?utm_source=cherkizovo_hh&utm_medium=referral&utm_campaign=special_project_vacancy'}).btn--outline.results__btn(onclick="ym(94739656, 'reachGoal', 'cherkizovo24_result_vacancies'); return true;")
 
             img(class="lazy results__bottom-overlay" src="assets/img/svg/results-bottom-overlay.svg" alt="")
             

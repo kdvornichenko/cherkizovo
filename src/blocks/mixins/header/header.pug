@@ -4,4 +4,4 @@ mixin header()
             +svg('logo-full')
         .header__support
             span.header__support-text Поддержите &laquo;Черкизово&raquo;<br>в&nbsp;Рейтинге работодателей!
-            +btn({text: 'Поддержать', isLink: true}).header__support-btn.btn--outline
+            +btn({text: 'Поддержать', isLink: true, href: 'https://rating.hh.ru/poll/?utm_source=cherkizovo_hh&utm_medium=referral&utm_campaign=special_project'}).header__support-btn.btn--outline(onclick="ym(94739656, 'reachGoal', 'cherkizovo24_landing_support'); return true;")

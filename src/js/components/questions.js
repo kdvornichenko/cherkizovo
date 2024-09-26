@@ -141,9 +141,13 @@ function setQuestionsPage() {
 
             btns[0].innerHTML = variants[randomIndex].btn;
             btns[0].dataset.btnIndex = randomIndex;
-
+            btns[0].setAttribute('onclick', `ym(94739656, 'reachGoal', '${ variants[randomIndex].ym}'); return true;`);
             btns[1].innerHTML = variants[1 - randomIndex].btn;
             btns[1].dataset.btnIndex = 1 - randomIndex;
+            btns[1].setAttribute('onclick', `ym(94739656, 'reachGoal', '${ variants[randomIndex].ym}'); return true;`);
+            
+            nextBtn.setAttribute('onclick', `ym(94739656, 'reachGoal', 'cherkizovo24_choice${questionCount + 1}_ahead'); return true;`);
+            
 
 
             container.classList.remove('is-answered');
