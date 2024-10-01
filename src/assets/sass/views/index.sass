@@ -29,7 +29,7 @@
 
 .page[data-page="main"]
     &.animate
-        .main-page__title-wrapper, .main-page__title-descr
+        .main-page__title-wrapper, .main-page__title-descr, .main-page__accept-btn
             scale: 0
             opacity: 0
     .question, .results__wrapper
@@ -124,20 +124,13 @@
 
     .main-page__title-descr
         +yo('margin-top', ($mob: 16px, $desktop-md: 25px))
-        +yo('padding-inline', ($mob: 15px, $desktop-md: 20px))
-        +yo('padding-block', ($mob: 10px, $desktop-md: 14px))
 
-        display: flex
-        column-gap: 13px
+        width: 100%
+        max-width: 650px
 
-        width: fit-content
-
-        border: 1px solid $brown
-        border-radius: 100px
-
-        +gotham(m)
-        +yo('font-size', ($mob: 16px, $desktop-md: 18px, $desktop-lg: 20px))
-        line-height: 22px
+        +yo('font-size', ($mob: 14px, $desktop-md: 16px, $desktop-lg: 18px))
+        line-height: 145%
+        letter-spacing: -1px
 
         position: relative
         z-index: 3
@@ -146,21 +139,17 @@
         opacity: 1
         transition: all $trs-6
         transform-origin: left
-        @media ( max-width: $tab )
-            background-color: rgba(#EAF8FE, 0.5)
-            backdrop-filter: blur(30px)
 
-        @media ( max-width: $mob )
-            border-radius: 16px
+        span
+            color: $brand
 
-        @media ( max-width: 410px )
-            padding-right: 24px
+    .main-page__accept-btn
+        position: relative
+        z-index: 4
 
-        @media ( min-width: 410px )
-            br
-                display: none
+        scale: 1
+        opacity: 1
+        transition: all $trs-6
+        transform-origin: left
 
-        svg
-            width: 21px
-            height: 26px
-            flex: 1 0 auto
+        margin-top: 28px

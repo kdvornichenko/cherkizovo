@@ -1,5 +1,7 @@
 document.addEventListener('page-transition:end', ({ detail }) => {
     if (detail.page !== 'questions') return;
+
+    const page = $.qs('[data-page]');
     const resultsContainer = $.qs('[data-results]');
 
     if (!resultsContainer) return;
@@ -20,5 +22,5 @@ document.addEventListener('page-transition:end', ({ detail }) => {
         }
     });
 
-    page.scroll(0, 0);
+    page?.scroll(0, 0);
 });

@@ -30,15 +30,16 @@
 .header__support
     display: flex
     align-items: center
-    column-gap: 22px
+    column-gap: 10px
 
-    padding: 12px 14px 12px 20px
+    svg
+        width: 15px
+        height: 18px
 
-    border-radius: 16px
-    backdrop-filter: blur(30px)
-    background-color: rgba($white, 0.65)
     @media ( max-width: $tab-sm )
         display: none
 
 .header__support-text
     font-size: 14px
+    +gotham(m)
+    line-height: 130%

@@ -7,7 +7,10 @@ const page = $.qs('[data-page]');
 const overlay = $.qs('[data-overlay]', page);
 const toQuestionsBtn = $.qs('[data-btn-to="questions"]', page);
 
-toQuestionsBtn.addEventListener('click', pageTransition);
+toQuestionsBtn.addEventListener('click', () => {
+    ym(94739656, 'reachGoal', 'cherkizovo24_landing_access');
+    pageTransition();
+});
 
 function pageTransition() {
     page.classList.add('animate');
@@ -50,8 +53,8 @@ document.addEventListener('page-transition:end', ({ detail }) => {
 });
 
 function setQuestionsPage() {
-    const getQuestions = () => axios.get('assets/json/questions.json').then(res => res.data);
-    page.scroll(0, 0);
+    const getQuestions = () => axios.get('assets/json/questions.json?v1').then(res => res.data);
+    page?.scroll(0, 0);
 
     Promise.resolve(getQuestions()).then(data => {
         const container = $.qs('[data-question="container"]');
@@ -107,12 +110,16 @@ function setQuestionsPage() {
                 const questionCount = getQuestionCount();
                 const isAnswerCorrect = data[questionCount].variants[btnIndex].value;
 
+                ym(94739656, 'reachGoal', `${data[questionCount].variants[btnIndex].ym}`);
+
                 isAnswerCorrect && correctAnsweredCount++;
                 setAnswer(isAnswerCorrect, questionCount, btnIndex);
             });
         });
 
         nextBtn.addEventListener('click', () => {
+            ym(94739656, 'reachGoal', `cherkizovo24_choice${questionCount}_ahead`);
+
             if (isAnswered && questionCount === data.length) {
                 localStorage.setItem('correctAnsweredCount', correctAnsweredCount);
                 pageTransition();
@@ -141,14 +148,8 @@ function setQuestionsPage() {
 
             btns[0].innerHTML = variants[randomIndex].btn;
             btns[0].dataset.btnIndex = randomIndex;
-            btns[0].setAttribute('onclick', `ym(94739656, 'reachGoal', '${ variants[randomIndex].ym}'); return true;`);
             btns[1].innerHTML = variants[1 - randomIndex].btn;
             btns[1].dataset.btnIndex = 1 - randomIndex;
-            btns[1].setAttribute('onclick', `ym(94739656, 'reachGoal', '${ variants[randomIndex].ym}'); return true;`);
-            
-            nextBtn.setAttribute('onclick', `ym(94739656, 'reachGoal', 'cherkizovo24_choice${questionCount + 1}_ahead'); return true;`);
-            
-
 
             container.classList.remove('is-answered');
             isAnswered = false;
@@ -159,7 +160,7 @@ function setQuestionsPage() {
                 +mainImgs()[i].dataset.imgValue === questionCount ? mainImgs()[i].classList.remove('is-hidden') : mainImgs()[i].classList.add('is-hidden');
             }
 
-            page.scroll(0, 0);
+            page?.scroll(0, 0);
         }
 
         function setAnswer(isCorrect, questionCount, btnIndex) {
@@ -171,7 +172,7 @@ function setQuestionsPage() {
             nextBtn.removeAttribute('disabled');
             isAnswered = true;
 
-            page.scroll(0, header.getBoundingClientRect().height + 10);
+            page?.scroll(0, header.getBoundingClientRect().height + 10);
         }
     });
 }

@@ -14,9 +14,8 @@ block content
                     h1.main-page__title Невыдуманная<br>история
                     img(src='assets/img/svg/main-title-oval-1.svg').main-page__title-oval.main-page__title-oval--1.lazyload.lazy
                     img(src='assets/img/svg/main-title-oval-2.svg').main-page__title-oval.main-page__title-oval--2.lazyload.lazy
-                .main-page__title-descr
-                    +svg('fire')
-                    span В&nbsp;этом году &laquo;Черкизово&raquo;<br> празднует 50&nbsp;лет!
+                .main-page__title-descr В&nbsp;весёлом квизе рассказываем, как изменилась жизнь когда-то небольшого мясоперерабатывающего завода за&nbsp;50&nbsp;лет,&nbsp;&mdash; а&nbsp;изменилась она невероятно!<br><span>Сможете отличить реальность от&nbsp;выдумки?</span>
+                +btn({text: 'Принять вызов'}).main-page__accept-btn.btn--solid(data-btn-to="questions" type="button")
         
         .question(data-question="container")
             .question__img-fake
