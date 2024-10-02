@@ -5,11 +5,13 @@ let correctAnsweredCount = 0;
 const header = $.qs('header');
 const page = $.qs('[data-page]');
 const overlay = $.qs('[data-overlay]', page);
-const toQuestionsBtn = $.qs('[data-btn-to="questions"]', page);
+const toQuestionsBtns = $.qsa('[data-btn-to="questions"]', page);
 
-toQuestionsBtn.addEventListener('click', () => {
-    ym(94739656, 'reachGoal', 'cherkizovo24_landing_access');
-    pageTransition();
+toQuestionsBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+        ym(94739656, 'reachGoal', 'cherkizovo24_landing_access');
+        pageTransition();
+    });
 });
 
 function pageTransition() {

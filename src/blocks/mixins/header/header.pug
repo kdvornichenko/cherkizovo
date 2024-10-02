@@ -2,6 +2,6 @@ mixin header()
     header.header.container&attributes(attributes)
         a(href='/').header__logo
             +svg('logo-full')
-        .header__support
+        a(href="https://rating.hh.ru/poll/?utm_source=cherkizovo_hh&utm_medium=referral&utm_campaign=special_project" onclick="ym(94739656, 'reachGoal', 'cherkizovo24_landing_support'); return true;").header__support
             +svg('fire')
             .header__support-text В&nbsp;этом году &laquo;Черкизово&raquo; празднует 50&nbsp;лет!

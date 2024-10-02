@@ -35,7 +35,7 @@
             max-width: 100%
             width: 100%
 
-        @media ( max-width: $mob )
+        @media ( max-width: $tab-sm )
             flex-direction: column
             padding-left: 10px
             align-items: start
@@ -100,6 +100,26 @@
     .footer
         .footer__btn
             border-radius: 12px
+
+    .footer__inner
+        padding: 16px
+        background-color: rgba($white, 0.75)
+
+    .footer__text
+        +gotham(r)
+
+    .footer__text--questions, .footer__mob-img
+        display: none
+
+    .footer__text--main
+        @media ( max-width: $tab-sm )
+            display: none
+
+    .footer__text--main-mob
+        +gotham(m)
+        @media ( min-width: $tab-sm + 1 )
+            display: none
+
     .footer__btn
         @extend .btn--outline
         .btn__icon
@@ -107,14 +127,21 @@
         .btn__text
             +gotham(m)
             font-size: 12px
-        @media ( max-width: $mob )
-            width: 100%
+        @media ( max-width: $tab-sm )
+            display: none
 
-    .footer__text
-        +gotham(r)
+    .footer__btn-mob
+        width: 100%
+        padding-block: 18px
+        @media ( min-width: $tab-sm + 1 )
+            display: none
 
-    .footer__text--questions, .footer__mob-img
-        display: none
+    .footer__signature
+        @media ( max-width: $tab )
+            padding: 6px
+            background-color: rgba($white, 0.2)
+            backdrop-filter: blur(30px)
+            border-radius: 10px
 
 .page[data-page="questions"]
     .footer
