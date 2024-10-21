@@ -83,7 +83,7 @@
 
     .footer__signature-left
         +gotham(r)
-        +yo('font-size', (320px: 11px, $tab: 14px))
+        +yo('font-size', (320px: 13px, $tab: 14px))
         line-height: 140%
         letter-spacing: -1px
 
@@ -93,7 +93,7 @@
         column-gap: 6px
 
         +proxima
-        +yo('font-size', (320px: 13px, $tab: 16px))
+        +yo('font-size', (320px: 15px, $tab: 16px))
         letter-spacing: -1px
 
 .page[data-page="main"]
@@ -104,6 +104,12 @@
     .footer__inner
         padding: 16px
         background-color: rgba($white, 0.75)
+        @media ( max-width: $tab-sm )
+            align-items: center
+            background-color: rgba($white, 0.50)
+            backdrop-filter: blur(30px)
+            row-gap: 14px
+            border-radius: 24px
 
     .footer__text
         +gotham(r)
@@ -117,6 +123,13 @@
 
     .footer__text--main-mob
         +gotham(m)
+        display: flex
+        align-items: center
+        column-gap: 10px
+        svg
+            width: 11px
+            height: 14px
+
         @media ( min-width: $tab-sm + 1 )
             display: none
 
@@ -132,16 +145,20 @@
 
     .footer__btn-mob
         width: 100%
-        padding-block: 18px
+        padding-block: 12px
+        background-color: $white
+        .btn__text
+            color: $black
+            font-size: 13px
+            text-transform: none
+            +gotham(m)
+            letter-spacing: 0
+
         @media ( min-width: $tab-sm + 1 )
             display: none
 
     .footer__signature
-        @media ( max-width: $tab )
-            padding: 6px
-            background-color: rgba($white, 0.2)
-            backdrop-filter: blur(30px)
-            border-radius: 10px
+        justify-content: space-between
 
 .page[data-page="questions"]
     .footer

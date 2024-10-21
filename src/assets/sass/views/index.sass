@@ -142,23 +142,14 @@
         span
             color: $brand
 
-        @media ( max-width: $tab-sm )
+        @media ( max-width: $mob )
             display: none
 
     .main-page__title-descr-mob
-        +yo('margin-top', ($mob: 16px, $desktop-md: 25px))
-        +yo('padding-inline', ($mob: 15px, $desktop-md: 20px))
-        +yo('padding-block', ($mob: 10px, $desktop-md: 14px))
+        +yo('margin-top', ($mob: 20px, $desktop-md: 25px))
 
-        display: flex
-        column-gap: 13px
-        width: fit-content
-        border: 1px solid $brown
-        border-radius: 100px
-
-        +gotham(m)
-        +yo('font-size', ($mob: 16px, $desktop-md: 18px, $desktop-lg: 20px))
-        line-height: 22px
+        +gotham(r)
+        font-size: 14px
 
         position: relative
         z-index: 3
@@ -167,25 +158,11 @@
         opacity: 1
         transition: all $trs-6
         transform-origin: left
-        @media ( max-width: $tab )
-            background-color: rgba(#EAF8FE, 0.5)
-            backdrop-filter: blur(30px)
 
-        @media ( max-width: $mob )
-            border-radius: 16px
-
-        @media ( max-width: 410px )
-            padding-right: 24px
-
-        @media ( min-width: 410px )
-            br
-                display: none
-
-        svg
-            width: 21px
-            height: 26px
-            flex: 1 0 auto
-        @media ( min-width: $tab-sm + 1 )
+        .btn
+            width: 100%
+            margin-top: 20px
+        @media ( min-width: $mob + 1 )
             display: none
 
     .main-page__accept-btn
@@ -199,6 +176,5 @@
 
         margin-top: 28px
         box-shadow: 24px 3px 74px 0 #edece7
-        @media ( max-width: $tab-sm )
+        @media ( max-width: $mob )
             display: none
-            

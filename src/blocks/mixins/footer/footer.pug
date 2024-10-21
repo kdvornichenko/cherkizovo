@@ -2,13 +2,14 @@ mixin footer()
     footer.footer&attributes(attributes)
         .footer__inner
             .footer__text.footer__text--main Поддержите &laquo;Черкизово&raquo; в&nbsp;Рейтинге работодателей!
-            .footer__text.footer__text--main-mob В&nbsp;весёлом квизе рассказываем, как изменилась жизнь когда-то небольшого мясоперерабатывающего завода за&nbsp;50&nbsp;лет,&nbsp;&mdash; а&nbsp;изменилась она невероятно! <span>Сможете отличить реальность от&nbsp;выдумки?</span>
+            .footer__text.footer__text--main-mob 
+                +svg('fire')
+                | &laquo;Черкизово&raquo; празднует 50&nbsp;лет!
             .footer__text.footer__text--questions
                 .footer__text-title Разделяете наш аппетит к&nbsp;работе?
                 .footer__text-desc Поддержите &laquo;Черкизово&raquo; в&nbsp;Рейтинге работодателей!
             +btn({text: 'Поддержать', icon: 'arrow-right', isLink: true, href: 'https://rating.hh.ru/poll/?utm_source=cherkizovo_hh&utm_medium=referral&utm_campaign=special_project'}).footer__btn(onclick="ym(94739656, 'reachGoal', 'cherkizovo24_landing_support'); return true;")
-            +btn({text: 'Принять вызов'}).footer__btn-mob.btn--solid(data-btn-to="questions" type="button")
-
+            +btn({text: 'Поддержать в Рейтинге', isLink: true, href: 'https://rating.hh.ru/poll/?utm_source=cherkizovo_hh&utm_medium=referral&utm_campaign=special_project'}).footer__btn-mob.btn--solid(onclick="ym(94739656, 'reachGoal', 'cherkizovo24_landing_support'); return true;")
 
         .footer__signature
             .footer__signature-left &copy;&nbsp;Черкизово 2024

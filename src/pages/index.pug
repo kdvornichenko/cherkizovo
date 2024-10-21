@@ -16,9 +16,9 @@ block content
                     img(src='assets/img/svg/main-title-oval-2.svg').main-page__title-oval.main-page__title-oval--2.lazyload.lazy
                 .main-page__title-descr В&nbsp;весёлом квизе рассказываем, как изменилась жизнь когда-то небольшого мясоперерабатывающего завода за&nbsp;50&nbsp;лет,&nbsp;&mdash; а&nbsp;изменилась она невероятно!<br><span>Сможете отличить реальность от&nbsp;выдумки?</span>
                 +btn({text: 'Принять вызов'}).main-page__accept-btn.btn--solid(data-btn-to="questions" type="button")
-                a(href="https://rating.hh.ru/poll/?utm_source=cherkizovo_hh&utm_medium=referral&utm_campaign=special_project" onclick="ym(94739656, 'reachGoal', 'cherkizovo24_landing_support'); return true;").main-page__title-descr-mob
-                    +svg('fire')
-                    span В&nbsp;этом году &laquo;Черкизово&raquo;<br> празднует 50&nbsp;лет!
+                .main-page__title-descr-mob
+                    p Роботы и&nbsp;колбаса&nbsp;&mdash; что общего?<br>Пройдите квиз и&nbsp;узнайте интересные факты о&nbsp;работе в&nbsp;&laquo;Черкизово&raquo;
+                    +btn({text: 'Принять вызов'}).btn--solid(data-btn-to="questions" type="button")
         
         .question(data-question="container")
             .question__img-fake
