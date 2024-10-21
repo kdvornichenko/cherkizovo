@@ -147,12 +147,16 @@
         width: 100%
         padding-block: 12px
         background-color: $white
+        &:hover
+            .btn__text
+                color: $brand
         .btn__text
             color: $black
             font-size: 13px
             text-transform: none
             +gotham(m)
             letter-spacing: 0
+            transition: $trs
 
         @media ( min-width: $tab-sm + 1 )
             display: none
